@@ -1,0 +1,19 @@
+#logo{
+    width: 70px;
+    height: 70px;
+}
+
+.texto {
+    font-family: Grandezza;
+}
+
+body {
+    background-image: url("../img/imgPrincipal.jpg");
+}
+
+@font-face {
+  font-family: Grandezza;
+  src: local("Grandezza Medium"),
+  url(../fonts/Grandezza/SF_Grandezza_Medium.ttf);
+  font-weight: bold;
+}
