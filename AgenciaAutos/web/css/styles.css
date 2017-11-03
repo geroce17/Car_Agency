@@ -3,17 +3,35 @@
     height: 70px;
 }
 
-.texto {
-    font-family: Grandezza;
+.full {
+    width: 100%;
 }
 
-body {
-    background-image: url("../img/imgPrincipal.jpg");
+.texto {
+    
 }
+
+/*body {
+    background-image: url("../img/imgPrincipal.jpg");
+}*/
 
 @font-face {
   font-family: Grandezza;
   src: local("Grandezza Medium"),
   url(../fonts/Grandezza/SF_Grandezza_Medium.ttf);
   font-weight: bold;
+}
+
+#menu {
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+#col {
+    z-index: -1;
+}
+
+#logo {
+    
 }
