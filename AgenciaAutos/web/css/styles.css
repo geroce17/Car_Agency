@@ -11,6 +11,10 @@
     
 }
 
+.fade {
+    transition: opacity .15s ease-out;
+}
+
 /*body {
     background-image: url("../img/imgPrincipal.jpg");
 }*/
