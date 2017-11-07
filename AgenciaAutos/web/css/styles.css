@@ -14,9 +14,10 @@
     transition: opacity .15s ease-out;
 }
 
-/*body {
+body {
     background-image: url("../img/imgPrincipal.jpg");
-}*/
+    background-attachment: fixed;
+}
 
 @font-face {
   font-family: Grandezza;
@@ -35,9 +36,6 @@
     z-index: -1;
 }
 
-.carousel-control-next-icon {
-}
-
 .carousel-control-next-icon, .carousel-control-prev-icon {
     display: inline-block;
     width: 50px;
@@ -48,21 +46,10 @@
 .subText {
     border-bottom: solid 2px black;
 }
-
-.formInformation {
-    
-}
-
 #divImage {
     width: 100%;
 }
 
-
-.servicesSub {
-    background-color: #005cbf;
-    color: white;
-    padding: 5px
-}
 
 .imgServices {
     box-shadow: 1px 1px 7px #dddfe2;

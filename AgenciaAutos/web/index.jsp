@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
-  <body style="background-color: black">
+  <body>
       
       <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
           <div class="container">
@@ -38,39 +38,6 @@
               </div>
           </div>
       </nav>
-      
-      
-      
-      <!--<div id="menu">
-          <div id="col" class="bg-dark" style="height: 56px; width: 100%; position: absolute"></div>
-          <div class="container">
-              <img id="logo" src="img/masterc.jpeg" alt="logoimg" align="left">
-              <nav class="navbar navbar-expand-md navbar-toggleable-md bg-dark navbar-dark">
-                  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-
-                  <div id="navbarNav" class="collapse navbar-collapse">
-
-                      <ul class="navbar-nav col-md-12">
-
-                          <li class="nav-item active texto" align="center">
-                              <a class="nav-link" href="#"><b>Inicio</b><span class="sr-only">(current)</span></a>
-                          </li>
-
-                          <li class="nav-item texto" align="center">
-                              <a class="nav-link" href="#"><b>Catálogo de vehiculos</b></a>
-                          </li>
-
-                          <li class="nav-item texto" align="center">
-                              <a class="nav-link" href="#"><b>Cotización Express</b></a>
-                          </li>
-
-                      </ul>
-                  </div>
-              </nav>
-          </div>
-      </div>-->
       
       <div id="carousel" class="carousel slide containe" data-ride="carousel" align="center" >
           <div class="carousel-inner" role="listbox">
@@ -99,7 +66,7 @@
           <div class="container bg-light">
               <nav class="navbar navbar-dark">
                   <label style="color: #cce5ff"><h4 class="my-4 text-center text-lg-left">Galeria de vehiculos</h4></label>
-                  <ul class="nav nav-tabs" role="tablist">
+                  <ul class="nav nav-tabs responsive-tabs" role="tablist">
                       <li class="nav-item">
                           <a class="nav-link active" data-toggle="tab" href="#destacados" role="tab">Destacados</a>
                       </li>
