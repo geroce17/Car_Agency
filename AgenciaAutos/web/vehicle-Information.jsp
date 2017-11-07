@@ -11,76 +11,161 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
+        <link href="css/creative.min.css" rel="stylesheet">
         <title>Información del vehiculo</title>
     </head>
     <body>
         
-        <div id="menu">
-            <div id="col" class="bg-dark" style="height: 56px; width: 100%; position: absolute"></div>
-            <div class="container">
-                <img id="logo" src="img/masterc.jpeg" alt="logoimg" align="left">
-                <nav class="navbar navbar-expand-md navbar-toggleable-md bg-dark navbar-dark">
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div id="navbarNav" class="collapse navbar-collapse">
-
-                        <ul class="navbar-nav col-md-12">
-
-                            <li class="nav-item active texto" align="center">
-                                <a class="nav-link" href="index.jsp">Inicio<span class="sr-only">(current)</span></a>
-                            </li>
-
-                            <li class="nav-item texto" align="center">
-                                <a class="nav-link" href="#">Vehiculos</a>
-                            </li>
-
-                            <li class="nav-item texto" align="center">
-                                <a class="nav-link" href="#">Cotización Express</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
+        <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
+          <div class="container">
+              <img id="logo" class="img-fluid" src="img/masterc.jpeg" alt="logoimg" align="left">
+              <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="#page-top">Agencia de vehiculos</a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#about">Catalogo de vehiculos</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#services">Cotización</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#portfolio">Agendar prueba de manejo</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
         
         <div id="col" class="bg-dark" style="height: 56px; width: 100%; position: absolute"></div>
         
         <div id="divImage">
-            <img src="img/Autos/versa.jpg">
+            <img id="divImage" class="img-fluid" src="img/Autos/versa.jpg">
         </div>
         <div class="container">
             
-            <div style="padding-top: 35px">
-                <h2 class="subText">Atributos</h2>
-                <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Modelo</label>
-                    <div class="col-10">
-                        <input class="form-control" type="text" value="Aqui iria la informacion si tuviera" id="example-text-input" readonly>
+            <section id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading">Atributos</h2>
+                            <hr class="my-4">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">No. puertas</label>
-                    <div class="col-10">
-                        <input class="form-control" type="text" value="Aqui iria la informacion si tuviera" id="example-text-input" readonly>
+                <div class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-3 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                                <i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons" data-sr-id="2"></i>
+                                <h3 class="mb-3">Modelo</h3>
+                                <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
+                                    que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
+                                    Existen diversos enfoques para el estudio de la información: Wikipedia</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                                <i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons" data-sr-id="3"></i>
+                                <h3 class="mb-3">Cilindraje</h3>
+                                <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
+                                    que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
+                                    Existen diversos enfoques para el estudio de la información: Wikipedia</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                                <i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons" data-sr-id="4"></i>
+                                <h3 class="mb-3">Rendimiento</h3>
+                                <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
+                                    que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
+                                    Existen diversos enfoques para el estudio de la información: Wikipedia</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                                <i class="fa fa-4x fa-heart text-primary mb-3 sr-icons" data-sr-id="5"></i>
+                                <h3 class="mb-3">No. Puertas</h3>
+                                <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
+                                    que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
+                                    Existen diversos enfoques para el estudio de la información: Wikipedia</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                                <i class="fa fa-4x fa-heart text-primary mb-3 sr-icons" data-sr-id="5"></i>
+                                <h3 class="mb-3">Llantas</h3>
+                                <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
+                                    que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
+                                    Existen diversos enfoques para el estudio de la información: Wikipedia</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Km/Lt</label>
-                    <div class="col-10">
-                        <input class="form-control" type="text" value="Aqui iria la informacion si tuviera" id="example-text-input" readonly>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">campo todo chido</label>
-                    <div class="col-10">
-                        <input class="form-control" type="text" value="Aqui iria la informacion si tuviera" id="example-text-input" readonly>
+            </section>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Servicios</h2>
+                        <hr class="my-4">
                     </div>
                 </div>
             </div>
-            
+            <section class="p-0" id="portfolio">
+                <div class="container-fluid p-0">
+                    <div class="row no-gutters popup-gallery justify-content-md-center">
+                        <div class="col-lg-4 col-sm-6">
+                            <a class="portfolio-box" href="img/cambio-ruedas.jpg">
+                                <img class="img-fluid" src="img/cambio-ruedas.jpg" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-category text-faded">
+                                            Cambio de llantas
+                                        </div>
+                                        <div class="project-name">
+                                            $Precio
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <a class="portfolio-box" href="img/oil-cha.jpg">
+                                <img class="img-fluid" src="img/oil-cha.jpg" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-category text-faded">
+                                            Cambio de aceite
+                                        </div>
+                                        <div class="project-name">
+                                            $Precio
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <a class="portfolio-box" href="img/coche-lavar.jpg">
+                                <img class="img-fluid" src="img/coche-lavar.jpg" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-category text-faded">
+                                            Category
+                                        </div>
+                                        <div class="project-name">
+                                            $Precio
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
         
         

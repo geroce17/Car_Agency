@@ -1,10 +1,14 @@
 #logo{
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 90px;
+    position: absolute;
+    top: 0px;
 }
-.texto {
-    
+
+#tituloPrincipal {
+    padding-left: 100px;
 }
+
 
 .fade {
     transition: opacity .15s ease-out;
@@ -31,10 +35,6 @@
     z-index: -1;
 }
 
-#logo {
-    
-}
-
 .carousel-control-next-icon {
 }
 
@@ -47,4 +47,33 @@
 
 .subText {
     border-bottom: solid 2px black;
+}
+
+.formInformation {
+    
+}
+
+#divImage {
+    width: 100%;
+}
+
+
+.servicesSub {
+    background-color: #005cbf;
+    color: white;
+    padding: 5px
+}
+
+.imgServices {
+    box-shadow: 1px 1px 7px #dddfe2;
+    max-width: 60%;
+}
+
+.textImg {
+    position:relative;
+    top:-60px;
+    left:10px;
+    z-index: 1;
+    color: #fcf8e3;
+    font-size: 18px;
 }

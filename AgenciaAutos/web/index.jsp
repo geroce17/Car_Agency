@@ -16,7 +16,32 @@
   </head>
   <body style="background-color: black">
       
-      <div id="menu">
+      <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
+          <div class="container">
+              <img id="logo" class="img-fluid" src="img/masterc.jpeg" alt="logoimg" align="left">
+              <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="#page-top">Agencia de vehiculos</a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#about">Catalogo de vehiculos</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#services">Cotización</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#portfolio">Agendar prueba de manejo</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+      
+      
+      
+      <!--<div id="menu">
           <div id="col" class="bg-dark" style="height: 56px; width: 100%; position: absolute"></div>
           <div class="container">
               <img id="logo" src="img/masterc.jpeg" alt="logoimg" align="left">
@@ -30,22 +55,22 @@
                       <ul class="navbar-nav col-md-12">
 
                           <li class="nav-item active texto" align="center">
-                              <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+                              <a class="nav-link" href="#"><b>Inicio</b><span class="sr-only">(current)</span></a>
                           </li>
 
                           <li class="nav-item texto" align="center">
-                              <a class="nav-link" href="#">Vehiculos</a>
+                              <a class="nav-link" href="#"><b>Catálogo de vehiculos</b></a>
                           </li>
 
                           <li class="nav-item texto" align="center">
-                              <a class="nav-link" href="#">Cotización Express</a>
+                              <a class="nav-link" href="#"><b>Cotización Express</b></a>
                           </li>
 
                       </ul>
                   </div>
               </nav>
           </div>
-      </div>
+      </div>-->
       
       <div id="carousel" class="carousel slide containe" data-ride="carousel" align="center" >
           <div class="carousel-inner" role="listbox">
