@@ -36,6 +36,10 @@ body {
     z-index: -1;
 }
 
+#carousel {
+  padding-top: 70px;
+}
+
 .carousel-control-next-icon, .carousel-control-prev-icon {
     display: inline-block;
     width: 50px;
@@ -63,4 +67,76 @@ body {
     z-index: 1;
     color: #fcf8e3;
     font-size: 18px;
+}
+
+.mainNavVisible {
+    border-bottom: 1px solid rgba(33,37,41,.1);
+    background-color: #fff;
+}
+.mainNavNoVisible {
+    border-color: transparent;
+    background-color: #f05f40;
+}
+
+#mainNav {
+    background-color: #06577c;
+}
+
+
+#titleCatalogue {
+  color: #ED6E59;
+}
+
+#navbarResponsive {
+
+}
+
+.noLimit {
+  padding: 0px !important;
+  margin-right: 0px !important;
+  margin: 0px !important;
+}
+
+.showLimit {
+  border: 2px solid black;
+}
+
+@media only screen and (min-width: 1199px) {
+  #carousel {
+    padding-top: 0px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  #carousel {
+    padding-top: 0px;
+  }
+}
+
+@media only screen and (max-width: 469px) {
+  #logo {
+    display: none;
+  }
+  #tituloPrincipal {
+    padding-left: 0px;
+  }
+}
+
+#divSelectedCar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.textPruebaManejo {
+    margin-top: 70px;
+    background-color: #7f0ed6;
+    padding: 6px !important;
+    margin-bottom: 0px !important;
+    width: 100%;
+    
+}
+
+#divAgenda {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
 }

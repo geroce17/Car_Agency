@@ -19,20 +19,20 @@
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">
                 <img id="logo" class="img-fluid" src="img/masterc.jpeg" alt="logoimg" align="left">
-                <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="#page-top">Agencia de vehiculos</a>
+                <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="index.jsp" target="_self">Agencia de vehiculos</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div align="right" class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#about">Catalogo de vehiculos</a>
+                            <a class="nav-link js-scroll-trigger" href="#atributos">Atributos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#services">Cotización</a>
+                            <a class="nav-link js-scroll-trigger" href="#servicios">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#portfolio">Agendar prueba de manejo</a>
+                            <a class="nav-link js-scroll-trigger" href="pruebaManejo.jsp" target="_self">Agendar prueba de manejo</a>
                         </li>
                     </ul>
                 </div>
@@ -47,7 +47,7 @@
             <img id="divImage" class="img-fluid" src="img/Autos/versa.jpg">
         </div>
 
-        <section style="width: 100%; background-color: white; padding: 0px !important; margin-top: 150px;">
+        <section id="atributos" style="width: 100%; background-color: white; padding: 0px !important; margin-top: 150px;">
             <div class="container">
                 <section id="services">
                     <div class="container">
@@ -115,7 +115,7 @@
             <div style="padding-top: 100px;" class="container">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12 text-center">
+                        <div id="servicios" class="col-lg-12 text-center">
                             <h2 class="section-heading">Servicios</h2>
                             <hr class="my-4">
                         </div>
@@ -123,10 +123,10 @@
                 </div>
                 <section class="p-0" id="portfolio">
                     <div class="container-fluid p-0">
-                        <div class="row no-gutters popup-gallery justify-content-md-center">
+                        <div class="justify-content-md-center row no-gutters popup-gallery">
                             <div class="col-lg-4 col-sm-6">
-                                <a class="portfolio-box" href="img/cambio-ruedas.jpg">
-                                    <img class="img-fluid" src="img/cambio-ruedas.jpg" alt="">
+                                <a class="portfolio-box" href="img/Util/cambio-ruedas.jpg">
+                                    <img class="img-fluid" src="img/Util/cambio-ruedas.jpg" alt="">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
                                             <div class="project-category text-faded">
@@ -140,8 +140,8 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-sm-6">
-                                <a class="portfolio-box" href="img/oil-cha.jpg">
-                                    <img class="img-fluid" src="img/oil-cha.jpg" alt="">
+                                <a class="portfolio-box" href="img/Util/oil-cha.jpg">
+                                    <img class="img-fluid" src="img/Util/oil-cha.jpg" alt="">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
                                             <div class="project-category text-faded">
@@ -155,12 +155,12 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-sm-6">
-                                <a class="portfolio-box" href="img/coche-lavar.jpg">
-                                    <img class="img-fluid" src="img/coche-lavar.jpg" alt="">
+                                <a class="portfolio-box" href="img/Util/coche-lavar.jpg">
+                                    <img class="img-fluid" src="img/Util/coche-lavar.jpg" alt="">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
                                             <div class="project-category text-faded">
-                                                Category
+                                                Lavado de coche
                                             </div>
                                             <div class="project-name">
                                                 $Precio
@@ -175,6 +175,19 @@
             </div>
         </section>
         
+        <script>
+            window.onscroll = function() {myFunction();};
+            
+            function myFunction() {
+                if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                    document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
+                }
+                else
+                {
+                    document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
+                }
+            }
+        </script>
         
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
