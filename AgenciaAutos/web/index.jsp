@@ -3,7 +3,8 @@
     Created on : 2/11/2017, 10:38:11 PM
     Author     : geroC
 --%>
-
+<%@page import="java.io.IOException"%>
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,6 +91,43 @@
                 <div class="tab-content container">
                     <div class="tab-pane fade active in show" id="destacados" role="tabpanel">
                         <div class="row text-center text-lg-left">
+                            <%
+                                    Connection connection;
+
+                                    PreparedStatement command;
+                                    ResultSet result;
+                                    HttpSession sessionInfo = request.getSession();
+                                    int limit = 5;
+
+                                    String codigo = request.getParameter("CountryCode");
+
+                                    try
+                                    {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "1234");
+
+                                        command = connection.prepareStatement("SELECT Name, District FROM city WHERE CountryCode = 'MEX'");
+                                        //command.setString(1, codigo);
+                                        //command.setString(2, distrito);
+                                        result = command.executeQuery();
+                                        int cont = 0;
+                                        while(result.next())
+                                        {
+                                            out.println("<div class=" + "'col-md-3'"+">");
+                                            out.println("<a href='vehicle-Information.jsp' ta"+"rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<img class='img-fluid img-thumbnail'"+" src='http://placehold.it/400x300' alt=''>");
+                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "ize: 18px'><b>" + result.getString(1) + "</b></div>");
+                                            out.println("<div style='position:relative; top:-"+"60px; left:10px; z-index: 1'><p style='color: gray"+"'>Desde: <b style='color: #c82333'>" + result.getString(2) + "</b></p><"+"/div>");
+                                            out.println("</a>");
+                                            out.println("</div>");
+                                        }
+                                    }
+                                    catch(Exception e)
+                                    {
+                                        System.out.println(e.getMessage());
+                                    }
+                            %>
+                            
                             <div class="col-md-3">
                                 <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
                                     <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
