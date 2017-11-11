@@ -14,11 +14,12 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
         <link href="css/creative.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
 
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
-            <div class="container">
+            <div class="container-fluid">
                 <img id="logo" class="img-fluid" src="img/masterc.jpeg" alt="logoimg" align="left">
                 <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="index.jsp" target="_self">Agencia de vehiculos</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +37,10 @@
                             <a class="nav-link js-scroll-trigger" href="pruebaManejo.jsp" target="_self">Agendar prueba de manejo</a>
                         </li>
                     </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -66,7 +71,7 @@
         <section style="width: 100%">
             <div style="background-color: white;">
                 <nav class="navbar container">
-                    <label id="titleCatalogue"><h4 class="my-4 text-center text-lg-left"><b>Galeria de vehiculos</b></h4></label>
+                    <label class="title"><h2 class="my-4 text-center text-lg-left"><b>Galeria de vehiculos</b></h2></label>
                     <ul class="nav nav-tabs responsive-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#destacados" role="tab"><b>Destacados</b></a>
@@ -221,39 +226,37 @@
             </div>
         </section>
 
-        <section style="padding-top: 25px; padding-bottom: 100px">
-            <div class="bg-dark" style="width: 100%; padding-top: 20px; padding-bottom: 30px;">
+        <section style="padding-top: 0px; padding-bottom: 0px">
+            <div class="bg-dark" style="width: 100%; padding-top: 150px; padding-bottom: 150px;">
                 <div class="container">
-                    <label style="padding-bottom: 20px" for="span_small" class="control-label"><h2 style="color: white" align="center"><b>Cotización express</b></h2></label>
-                    <div class="row">
-                        <div class="col-md-5">
+                    <label style="color: white"><h2 class="my-4 text-center text-lg-left"><b>Galeria de vehiculos</b></h2></label>
+                    <form class="form-inline">
+                        <div style="padding-bottom: 15px" class="col-md-5">
                             <!--<label class="sr-only" for="txtNombre">*Nombre</label>-->
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/Util/iconperson.png"></div>
                                 <input type="text" class="form-control" id="txtNombre" placeholder="*Nombre">
                             </div>
                         </div>
-                        <div class="col-md-7">
+                        <div style="padding-bottom: 15px" class="col-md-7">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/Util/iconperson.png"></div>
                                 <input type="text" class="form-control" id="txtApellido" placeholder="*Apellido">
                             </div>
                         </div>
-                    </div>
-                    <div style="margin-top: 10px" class="row">
-                        <div class="col-md-3">
+                        <div style="padding-bottom: 15px" class="col-md-3">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/Util/icontelephone.png"></div>
                                 <input type="text" class="form-control" id="txtTelefono" placeholder="*Teléfono">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div style="padding-bottom: 15px" class="col-md-6">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon">@</div>
                                 <input type="text" class="form-control" id="txtEmail" placeholder="*Email">
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div style="padding-bottom: 15px" class="col-md-3">
                             <select id="span_small" class="form-control select2-single select2-hidden-accessible" tabindex="-1" aria-hidden="true">
                                 <option active>Vehiculo</option>
                                 <optgroup label="Alaskan/Hawaiian Time Zone">
@@ -268,19 +271,44 @@
 
                             </select>
                         </div>
+                        <div style="margin-top: 10px;" class="offset-5 col-2">
+                            <input type="submit" class="btn">
+                        </div>
+                    </form>
+                    <div class="row">
+
                     </div>
-                    <div style="margin-top: 10px;" class="offset-5 col-2">
-                        <input style="width: 100%" type="submit" class="btn">
+                    <div style="margin-top: 10px" class="row">
+
                     </div>
+
                 </div>
             </div>
-
+            <div id="footer" style="background-color: white; padding-top: 60px; padding-bottom: 60px">
+                <div class="container">
+                    <label class="title"><h2 class="my-4 text-center text-lg-left"><b>Contactanos en</b></h2></label>
+                    <h5>Calle Lic. Carlos de La Madrid Béjar 891<br> Centro, 28000 Colima, Col.</h5>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                </div>
+            </div>
         </section>
-
-
-
-
-
+        
+        <script>
+            window.onscroll = function() {myFunction();};
+            
+            function myFunction() {
+                if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                    document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
+                }
+                else
+                {
+                    document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
+                }
+            }
+        </script>
+        
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="js/bootstrap.min.js"></script>
