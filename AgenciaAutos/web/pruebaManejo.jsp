@@ -14,7 +14,7 @@
         <link href="css/creative.min.css" rel="stylesheet">
         <title>Agenda tu prueba de manejo</title>
     </head>
-    <body style="background-color: white; background-image: none;">
+    <body>
         
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">

@@ -15,7 +15,7 @@
 }
 
 body {
-    background-image: url("../img/imgPrincipal.jpg");
+    background-image: url("../img/CF9.jpg");
     background-attachment: fixed;
 }
 
@@ -37,7 +37,8 @@ body {
 }
 
 #carousel {
-  padding-top: 70px;
+  margin-top: 57px;
+  
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -91,10 +92,14 @@ body {
 
 }
 
-.noLimit {
-  padding: 0px !important;
-  margin-right: 0px !important;
-  margin: 0px !important;
+.noLimitLR{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.noLimitTB{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
 }
 
 .showLimit {
@@ -139,4 +144,15 @@ body {
 #divAgenda {
     padding-top: 0px !important;
     margin-top: 0px !important;
+}
+
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #ffffff;
+    background-color: #ee6d58;
+    border-color: #ddd #ddd #fff;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #000;
 }
