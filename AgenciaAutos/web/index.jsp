@@ -104,7 +104,7 @@
                                     try
                                     {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "1234");
+                                        connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
 
                                         command = connection.prepareStatement("SELECT Name, District FROM city WHERE CountryCode = 'MEX'");
                                         //command.setString(1, codigo);
