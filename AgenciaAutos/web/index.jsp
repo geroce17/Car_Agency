@@ -268,57 +268,50 @@
             <div class="bg-dark" style="width: 100%; padding-top: 150px; padding-bottom: 150px;">
                 <div class="container">
                     <label style="color: white"><h2 class="my-4 text-center text-lg-left"><b>Galeria de vehiculos</b></h2></label>
-                    <form class="form-inline">
+                    <form action="email-enviado.jsp" method="post" class="form-inline">
                         <div style="padding-bottom: 15px" class="col-md-5">
-                            <!--<label class="sr-only" for="txtNombre">*Nombre</label>-->
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/Util/iconperson.png"></div>
-                                <input type="text" class="form-control" id="txtNombre" placeholder="*Nombre">
+                                <input name="nombre" type="text" class="form-control" id="txtNombre" placeholder="*Nombre">
                             </div>
                         </div>
                         <div style="padding-bottom: 15px" class="col-md-7">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/Util/iconperson.png"></div>
-                                <input type="text" class="form-control" id="txtApellido" placeholder="*Apellido">
+                                <input name="apellido" type="text" class="form-control" id="txtApellido" placeholder="*Apellido">
                             </div>
                         </div>
                         <div style="padding-bottom: 15px" class="col-md-3">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/Util/icontelephone.png"></div>
-                                <input type="text" class="form-control" id="txtTelefono" placeholder="*Teléfono">
+                                <input name="telefono" type="text" class="form-control" id="txtTelefono" placeholder="*Teléfono">
                             </div>
                         </div>
-                        <div style="padding-bottom: 15px" class="col-md-6">
+                        <div style="padding-bottom: 15px;" class="col-md-6">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon">@</div>
-                                <input type="text" class="form-control" id="txtEmail" placeholder="*Email">
+                                <input name="email" type="text" class="form-control" id="txtEmail" placeholder="*Email">
                             </div>
                         </div>
                         <div style="padding-bottom: 15px" class="col-md-3">
-                            <select id="span_small" class="form-control select2-single select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                            <select name="vehiculo" id="span_small" class="form-control select2-single select2-hidden-accessible" tabindex="-1" aria-hidden="true">
                                 <option active>Vehiculo</option>
                                 <optgroup label="Alaskan/Hawaiian Time Zone">
-                                    <option value="AK">Alaska</option>
+                                    <option>Alaska</option>
                                 </optgroup>
                                 <optgroup label="Pacific Time Zone">
-                                    <option value="CA">California</option>
-                                    <option value="NV">Nevada</option>
-                                    <option value="OR">Oregon</option>
-                                    <option value="WA">Washington</option>
+                                    <option>California</option>
+                                    <option>Nevada</option>
+                                    <option>Oregon</option>
+                                    <option>Washington</option>
                                 </optgroup>
 
                             </select>
                         </div>
                         <div style="margin-top: 10px;" class="offset-5 col-2">
-                            <input type="submit" class="btn">
+                            <button type="submit" class="btn">Enviar</button>
                         </div>
                     </form>
-                    <div class="row">
-
-                    </div>
-                    <div style="margin-top: 10px" class="row">
-
-                    </div>
 
                 </div>
             </div>
