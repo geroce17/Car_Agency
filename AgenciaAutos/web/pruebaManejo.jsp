@@ -27,13 +27,13 @@
                 <div align="right" class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">Selecciona tu zona</a>
+                            <a class="nav-link js-scroll-trigger" href="#divAgenda">Selecciona tu zona</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">Elige tu vehiculo</a>
+                            <a class="nav-link js-scroll-trigger" href="#toauto">Elige tu vehiculo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#" target="_self">Ingresa tus datos</a>
+                            <a class="nav-link js-scroll-trigger" href="#ingresaDatos">Ingresa tus datos</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -65,7 +65,7 @@
 
         <form action="prueba-solicitada.jsp" method="post">
             <section style="padding-top: 60px;">
-                <div style="background-color: white">
+                <div id="toauto" style="background-color: white">
                     <div class="container">
 
                         <div style="padding-bottom: 35px" class="row">

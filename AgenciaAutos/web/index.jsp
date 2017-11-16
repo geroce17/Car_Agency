@@ -23,16 +23,17 @@
             <div class="container-fluid">
                 <img id="logo" class="img-fluid" src="img/masterc.jpeg" alt="logoimg" align="left">
                 <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="index.jsp" target="_self">Agencia de vehiculos</a>
+                <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="ResultadosDeBusqueda.jsp" target="_self">go to search results (solo testeo)</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div align="right" class="collapse navbar-collapse" id="navbarResponsive">
+                <div id="navbarResponsive" align="right" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#titleCatalogue">Galería de vehiculos</a>
+                            <a class="nav-link js-scroll-trigger" href="#galeria">Cotización</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">Cotización</a>
+                            <a class="nav-link js-scroll-trigger" href="#cotizacion">Cotización</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="pruebaManejo.jsp" target="_self">Agendar prueba de manejo</a>
@@ -70,35 +71,35 @@
 
 
         <section style="width: 100%">
-            <div style="background-color: white;">
+            <div id="galeria" style="background-color: white;">
                 <nav class="navbar container">
                     <label class="title"><h2 class="my-4 text-center text-lg-left"><b>Galeria de vehiculos</b></h2></label>
                     <ul class="nav nav-tabs responsive-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#destacados" role="tab"><b>Todos</b></a>
+                            <a class="nav-link active" data-toggle="tab" href="#todos" role="tab"><b>Todos</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#nuevos" role="tab"><b>Autos</b></a>
+                            <a class="nav-link" data-toggle="tab" href="#autos" role="tab"><b>Autos</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#nuevos" role="tab"><b>Crossovers y suvs</b></a>
+                            <a class="nav-link" data-toggle="tab" href="#crossovers-suvs" role="tab"><b>Crossovers y suvs</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#usados" role="tab"><b>Pick-ups</b></a>
+                            <a class="nav-link" data-toggle="tab" href="#pick-ups" role="tab"><b>Pick-ups</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-dtoggle="tab" href="#masvendidos" role="tab"><b>Comerciales</b></a>
+                            <a class="nav-link" data-toggle="tab" href="#comerciales" role="tab"><b>Comerciales</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#masvendidos" role="tab"><b>Híbridos y Eléctricos</b></a>
+                            <a class="nav-link" data-toggle="tab" href="#hibridos-electricos" role="tab"><b>Híbridos y Eléctricos</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#masvendidos" role="tab"><b>Deportivos</b></a>
+                            <a class="nav-link" data-toggle="tab" href="#deportivos" role="tab"><b>Deportivos</b></a>
                         </li>
                     </ul>
                 </nav>
                 <div class="tab-content container">
-                    <div class="tab-pane fade active in show" id="destacados" role="tabpanel">
+                    <div class="tab-pane fade active in show" id="todos" role="tabpanel">
                         <div class="row text-center text-lg-left">
                             <%
                                 Connection connection;
@@ -114,7 +115,7 @@
                                     connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
                                     //connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
 
-                                    command = connection.prepareStatement("SELECT Name, District FROM city WHERE CountryCode = 'MEX'");
+                                    command = connection.prepareStatement("SELECT Name, District FROM city limit 20");
                                     //command.setString(1, codigo);
                                     //command.setString(2, distrito);
                                     result = command.executeQuery();
@@ -132,39 +133,10 @@
                                     System.out.println(e.getMessage());
                                 }
                             %>
-
-                            <div class="col-md-3">
-                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                </a>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="nuevos" role="tabpanel">
+                    <div class="tab-pane fade" id="autos" role="tabpanel">
                         <div class="row text-center text-lg-left">
 
                             <div class="col-md-3">
@@ -198,7 +170,7 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="usados" role="tabpanel">
+                    <div class="tab-pane fade" id="crossovers-suvs" role="tabpanel">
                         <div class="row text-center text-lg-left">
 
                             <div class="col-md-3">
@@ -232,7 +204,106 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="masvendidos" role="tabpanel">
+                    <div class="tab-pane fade" id="pick-ups" role="tabpanel">
+                        <div class="row text-center text-lg-left">
+
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="comerciales" role="tabpanel">
+                        <div class="row text-center text-lg-left">
+
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="hibridos-electricos" role="tabpanel">
+                        <div class="row text-center text-lg-left">
+
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
+                                    <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="deportivos" role="tabpanel">
                         <div class="row text-center text-lg-left">
 
                             <div class="col-md-3">
@@ -270,7 +341,7 @@
         </section>
 
         <section style="padding-top: 0px; padding-bottom: 0px">
-            <div class="bg-dark" style="width: 100%; padding-top: 150px; padding-bottom: 150px;">
+            <div id="cotizacion" class="bg-dark" style="width: 100%; padding-top: 150px; padding-bottom: 150px;">
                 <div class="container">
                     <label style="color: white"><h2 class="my-4 text-center text-lg-left"><b>Cotización</b></h2></label>
                     <form action="email-enviado.jsp" method="post" class="form-inline">
