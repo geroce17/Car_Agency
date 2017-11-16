@@ -40,7 +40,7 @@
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -101,42 +101,38 @@
                     <div class="tab-pane fade active in show" id="destacados" role="tabpanel">
                         <div class="row text-center text-lg-left">
                             <%
-                                    Connection connection;
+                                Connection connection;
 
-                                    PreparedStatement command;
-                                    ResultSet result;
-                                    HttpSession sessionInfo = request.getSession();
+                                PreparedStatement command;
+                                ResultSet result;
+                                HttpSession sessionInfo = request.getSession();
 
-                                    String codigo = request.getParameter("CountryCode");
+                                String codigo = request.getParameter("CountryCode");
 
-                                    try
-                                    {
-                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
-                                        //connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
+                                try {
+                                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
+                                    //connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
 
-                                        command = connection.prepareStatement("SELECT Name, District FROM city WHERE CountryCode = 'MEX'");
-                                        //command.setString(1, codigo);
-                                        //command.setString(2, distrito);
-                                        result = command.executeQuery();
-                                        int cont = 0;
-                                        while(result.next())
-                                        {
-                                            out.println("<div class=" + "'col-md-3'"+">");
-                                            out.println("<a href='vehicle-Information.jsp' ta"+"rget='_self' class='d-block mb-4 h-100'>");
-                                            out.println("<img class='img-fluid img-thumbnail'"+" src='http://placehold.it/400x300' alt=''>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(1) + "</b></div>");
-                                            out.println("<div style='position:relative; top:-"+"60px; left:10px; z-index: 1'><p style='color: gray"+"'>Desde: <b style='color: #c82333'>" + result.getString(2) + "</b></p><"+"/div>");
-                                            out.println("</a>");
-                                            out.println("</div>");
-                                        }
+                                    command = connection.prepareStatement("SELECT Name, District FROM city WHERE CountryCode = 'MEX'");
+                                    //command.setString(1, codigo);
+                                    //command.setString(2, distrito);
+                                    result = command.executeQuery();
+                                    int cont = 0;
+                                    while (result.next()) {
+                                        out.println("<div class=" + "'col-md-3'" + ">");
+                                        out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                        out.println("<img class='img-fluid img-thumbnail'" + " src='http://placehold.it/400x300' alt=''>");
+                                        out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(1) + "</b></div>");
+                                        out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>" + result.getString(2) + "</b></p><" + "/div>");
+                                        out.println("</a>");
+                                        out.println("</div>");
                                     }
-                                    catch(Exception e)
-                                    {
-                                        System.out.println(e.getMessage());
-                                    }
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
+                                }
                             %>
-                            
+
                             <div class="col-md-3">
                                 <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
                                     <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
@@ -299,20 +295,20 @@
                         <div style="padding-bottom: 15px;" class="col-md-6">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon">@</div>
-                                <input name="email" type="text" class="form-control" id="txtEmail" placeholder="*Email" required>
+                                <input name="email" type="email" class="form-control" id="txtEmail" placeholder="*Email" required>
                             </div>
                         </div>
                         <div style="padding-bottom: 15px" class="col-md-3">
-                            <select name="vehiculo" id="span_small" class="form-control select2-single select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                                <option active>Vehiculo</option>
+                            <select name="vehiculo" id="span_small" class="form-control select2-single select2-hidden-accessible" tabindex="-1" aria-hidden="true" required>
+                                <option value="">*Elige un vehiculo</option>
                                 <optgroup label="Alaskan/Hawaiian Time Zone">
-                                    <option>Alaska</option>
+                                    <option value="">Alaska</option>
                                 </optgroup>
                                 <optgroup label="Pacific Time Zone">
-                                    <option>California</option>
-                                    <option>Nevada</option>
-                                    <option>Oregon</option>
-                                    <option>Washington</option>
+                                    <option value="California">California</option>
+                                    <option value="">Nevada</option>
+                                    <option value="Nevada">Oregon</option>
+                                    <option value="Washington">Washington</option>
                                 </optgroup>
 
                             </select>
@@ -334,21 +330,22 @@
                 </div>
             </div>
         </section>
-        
+
         <script>
-            window.onscroll = function() {myFunction();};
-            
+            window.onscroll = function () {
+                myFunction();
+            };
+
             function myFunction() {
                 if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
                     document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
-                }
-                else
+                } else
                 {
                     document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
                 }
             }
         </script>
-        
+
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="js/bootstrap.min.js"></script>

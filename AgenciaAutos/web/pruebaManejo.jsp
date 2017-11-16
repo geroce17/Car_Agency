@@ -38,7 +38,7 @@
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -63,131 +63,116 @@
             </div>
         </section>
 
-        <section style="padding-top: 60px;">
-            <div style="background-color: white">
-                <div class="container">
+        <form action="prueba-solicitada.jsp" method="post">
+            <section style="padding-top: 60px;">
+                <div style="background-color: white">
+                    <div class="container">
 
-                    <div style="padding-bottom: 35px" class="row">
+                        <div style="padding-bottom: 35px" class="row">
 
-                        <div id="seleccionaAuto" class="col-md-12">
-                            <label for="span_small" class="control-label textPruebaManejo"><h2 style="color: white" align="center">Elige tu vehiculo</h2></label>
-                            <select id="span_small" class="form-control select2-single select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                                <option active>Elige un vehiculo</option>
-                                <optgroup label="Alaskan/Hawaiian Time Zone">
-                                    <option value="AK">Alaska</option>
-                                </optgroup>
-                                <optgroup label="Pacific Time Zone">
-                                    <option value="CA">California</option>
-                                    <option value="NV">Nevada</option>
-                                    <option value="OR">Oregon</option>
-                                    <option value="WA">Washington</option>
-                                </optgroup>
-                                <optgroup label="Mountain Time Zone">
-                                    <option value="AZ">Arizona</option>
-                                    <option value="CO">Colorado</option>
-                                    <option value="ID">Idaho</option>
-                                    <option value="MT">Montana</option>
-                                </optgroup>
-                                <optgroup label="Central Time Zone">
-                                    <option value="AL">Alabama</option>
-                                    <option value="AR">Arkansas</option>
-                                    <option value="IL">Illinois</option>
-                                    <option value="IA">Iowa</option>
-                                </optgroup>
-                                <optgroup label="Eastern Time Zone">
-                                    <option value="CT">Connecticut</option>
-                                    <option value="DE">Delaware</option>
-                                    <option value="FL">Florida</option>
-                                    <option value="GA">Georgia</option>
-                                </optgroup>
-                            </select>
+                            <div id="seleccionaAuto" class="col-md-12">
+                                <label for="span_small" class="control-label textPruebaManejo"><h2 style="color: white" align="center">Elige tu vehiculo</h2></label>
+                                <select id="span_small" class="form-control select2-single select2-hidden-accessible" tabindex="-1" aria-hidden="true" name="selectedvehicle" required>
+                                    <option value="">*Elige un vehiculo</option>
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                        <option value="Alaska">Alaska</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                        <option value="California">California</option>
+                                        <option value="Nevada">Nevada</option>
+                                        <option value="Oregon">Oregon</option>
+                                        <option value="Washington">Washington</option>
+                                    </optgroup>
+                                </select>
 
-                            <div id="divSelectedCar" class="container">
-                                <div class="row">
-                                    <div id="tablecol" class="col">
-                                        <table class="table table-bordered table-light table-hover">
-                                            <tbody>
-                                                <tr>
-                                                    <td><b>Modelo: </b></td>
-                                                    <td>sin valor</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Cilindraje: </b></td>
-                                                    <td>sin valor</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Rendimiento: </b></td>
-                                                    <td>sin valor</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div id="carSelectedImage" class="col-12 col-sm-12 col-lg-8">
-                                        <img class="img-fluid" src="img/Autos/versa.jpg">
+                                <div id="divSelectedCar" class="container">
+                                    <div class="row">
+                                        <div id="tablecol" class="col">
+                                            <table class="table table-bordered table-light table-hover">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><b>Modelo: </b></td>
+                                                        <td>sin valor</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Cilindraje: </b></td>
+                                                        <td>sin valor</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Rendimiento: </b></td>
+                                                        <td>sin valor</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div id="carSelectedImage" class="col-12 col-sm-12 col-lg-8">
+                                            <img class="img-fluid" src="img/Autos/versa.jpg">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
+                </div>
+            </section>
+
+            <section style="padding-bottom: 0px">
+                <div style="background-color: white; padding-bottom: 60px">
+
+                    <div class="container">
+                        <div id="ingresaDatos" class="col-md-12">
+                            <label for="span_small" class="control-label textPruebaManejo"><h2 style="color: white" align="center">Ingresa tus datos</h2></label>
+                            <div style="padding-top: 35px">
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Nombre</label>
+                                    <div class="col-sm-12 col-md-5">
+                                        <input class="form-control" type="text" value="" id="example-text-input" name="name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-search-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Apellido paterno</label>
+                                    <div class="col-md-6 col-sm-12">
+                                        <input class="form-control" type="text" value="" id="example-search-input" name="lastname" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-email-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Apellido materno</label>
+                                    <div class="col-md-6 col-sm-12">
+                                        <input class="form-control" type="text" value="" id="example-email-input" name="lastname2" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-url-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Correo electrónico</label>
+                                    <div class="col-md-7 col-sm-12">
+                                        <input class="form-control" type="email" value="" id="example-url-input" name="emailp" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-tel-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Teléfono</label>
+                                    <div class="col-md-7 col-sm-12">
+                                        <input class="form-control" type="tel" value="" id="example-tel-input" name="phone" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-password-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">Celular</label>
+                                    <div class="col-md-7 col-sm-12">
+                                        <input class="form-control" type="tel" value="" id="example-password-input" name="cel" required>
+                                    </div>
+                                </div>
+                                <div style="padding-top: 5px;" align="center">
+                                    <button class="btn btn-primary" type="submit">Agendar prueba de manejo</button>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
 
                 </div>
-            </div>
-        </section>
 
-        <section style="padding-bottom: 0px">
-            <div style="background-color: white; padding-bottom: 60px">
-                
-                <div class="container">
-                    <div id="ingresaDatos" class="col-md-12">
-                        <label for="span_small" class="control-label textPruebaManejo"><h2 style="color: white" align="center">Ingresa tus datos</h2></label>
-                        <div style="padding-top: 35px">
-                            <div class="form-group row">
-                                <label for="example-text-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Nombre</label>
-                                <div class="col-sm-12 col-md-5">
-                                    <input class="form-control" type="text" value="" id="example-text-input">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-search-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Apellido paterno</label>
-                                <div class="col-md-6 col-sm-12">
-                                    <input class="form-control" type="text" value="" id="example-search-input">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-email-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Apellido materno</label>
-                                <div class="col-md-6 col-sm-12">
-                                    <input class="form-control" type="text" value="" id="example-email-input">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-url-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Correo electrónico</label>
-                                <div class="col-md-7 col-sm-12">
-                                    <input class="form-control" type="email" value="" id="example-url-input">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-tel-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Teléfono</label>
-                                <div class="col-md-7 col-sm-12">
-                                    <input class="form-control" type="tel" value="" id="example-tel-input">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-password-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">Celular</label>
-                                <div class="col-md-7 col-sm-12">
-                                    <input class="form-control" type="tel" value="" id="example-password-input">
-                                </div>
-                            </div>
-                            <div style="padding-top: 5px;" align="center">
-                                <button onclick="alert('¡La petición ha sido enviada!')" class="btn btn-primary" type="button">Agendar prueba de manejo</button>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                
-            </div>
+            </section>
+        </form>
 
-        </section>
 
         <div id="footer" style="padding-top: 60px; padding-bottom: 60px" class="bg-dark">
             <div class="container">
@@ -205,18 +190,18 @@
         <script src="plugins/jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
 
         <script>
-                                    window.onscroll = function () {
-                                        myFunction();
-                                    };
+                        window.onscroll = function () {
+                            myFunction();
+                        };
 
-                                    function myFunction() {
-                                        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-                                            document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
-                                        } else
-                                        {
-                                            document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
-                                        }
-                                    }
+                        function myFunction() {
+                            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                                document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
+                            } else
+                            {
+                                document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
+                            }
+                        }
         </script>
 
         <script>

@@ -38,7 +38,7 @@
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -110,9 +110,9 @@
                 </section>
             </div>
         </section>
-        
+
         <section style="width: 100%; background-color: white; padding: 0px !important; margin-top: 150px;">
-            <div style="padding-top: 100px;" class="container">
+            <div style="padding-top: 100px; padding-bottom: 100px" class="container">
                 <div class="container">
                     <div class="row">
                         <div id="servicios" class="col-lg-12 text-center">
@@ -125,8 +125,8 @@
                     <div class="container-fluid p-0">
                         <div class="justify-content-md-center row no-gutters popup-gallery">
                             <div class="col-lg-4 col-sm-6">
-                                <a class="portfolio-box" href="img/Util/cambio-ruedas.jpg">
-                                    <img class="img-fluid" src="img/Util/cambio-ruedas.jpg" alt="">
+                                <a class="portfolio-box" href="img/util/cambio-ruedas.jpg">
+                                    <img class="img-fluid" src="img/util/cambio-ruedas.jpg" alt="">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
                                             <div class="project-category text-faded">
@@ -140,8 +140,8 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-sm-6">
-                                <a class="portfolio-box" href="img/Util/oil-cha.jpg">
-                                    <img class="img-fluid" src="img/Util/oil-cha.jpg" alt="">
+                                <a class="portfolio-box" href="img/util/oil-cha.jpg">
+                                    <img class="img-fluid" src="img/util/oil-cha.jpg" alt="">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
                                             <div class="project-category text-faded">
@@ -155,8 +155,8 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 col-sm-6">
-                                <a class="portfolio-box" href="img/Util/coche-lavar.jpg">
-                                    <img class="img-fluid" src="img/Util/coche-lavar.jpg" alt="">
+                                <a class="portfolio-box" href="img/util/coche-lavar.jpg">
+                                    <img class="img-fluid" src="img/util/coche-lavar.jpg" alt="">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
                                             <div class="project-category text-faded">
@@ -183,24 +183,25 @@
                 </div>
             </div>
         </section>
-        
+
         <script>
-            window.onscroll = function() {myFunction();};
-            
+            window.onscroll = function () {
+                myFunction();
+            };
+
             function myFunction() {
                 if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
                     document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
-                }
-                else
+                } else
                 {
                     document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
                 }
             }
         </script>
-        
+
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="js/bootstrap.min.js"></script>
-        
+
     </body>
 </html>
