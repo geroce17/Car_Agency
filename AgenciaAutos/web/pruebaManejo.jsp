@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Agenda tu prueba de manejo</title>
     </head>
-    <body>
+    <body id="prueba" class="img-fluid">
 
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
@@ -27,13 +27,13 @@
                 <div align="right" class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#titleCatalogue">Selecciona tu zona</a>
+                            <a class="nav-link js-scroll-trigger" href="#">Selecciona tu zona</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="#">Elige tu vehiculo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="pruebaManejo.jsp" target="_self">Ingresa tus datos</a>
+                            <a class="nav-link js-scroll-trigger" href="#" target="_self">Ingresa tus datos</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -49,7 +49,7 @@
 
 
                 <label  for="span_small" class="control-label textPruebaManejo"><h2 align="center" style="color: white;">Selecciona una zona del mapa</h2></label>
-                <img class="img-fluid" src="img/Util/zonemap.png" alt="zone map" usemap="#mexicomap">
+                <img class="img-fluid" src="img/util/zonemap.png" alt="zone map" usemap="#mexicomap">
 
                 <map name="mexicomap" id="mexicomap">
                     <area onclick="showZone(this)"  alt="Zona Norte" title="northzone" href="#zone" shape="poly" coords="563,618,587,606,594,592,553,532,510,430,447,327,381,227,369,187,368,160,361,134,361,110,399,134,421,149,441,160,442,177,452,211,471,251,465,264,482,267,522,333,549,346,570,383,587,407,606,424,600,455,602,471,631,485,650,501,664,524,690,543,704,559,719,577,728,588,737,605,752,623,763,635,779,642,778,646,787,640,793,631,794,618,818,624,823,637,837,649,851,641,862,614,878,581,881,560,906,545,943,538,935,523,937,512,953,509,969,506,984,515,1004,525,1015,533,1025,537,1032,531,1027,516,1030,505,1052,503,1048,490,1025,468,1012,444,1025,425,1037,418,1029,395,1031,385,1047,361,1065,365,1067,355,1016,277,997,254,974,253,950,248,930,261,925,274,927,283,918,286,900,296,876,282,854,266,837,230,821,198,800,183,776,158,756,140,681,138,671,159,644,162,543,156,374,77,373,64,261,65,274,99,283,132,295,155,304,188,310,213,327,237,346,248,358,265,371,279,383,311,369,328,336,331,384,382,404,392,425,398,445,421,469,453,470,481,464,490,462,505,462,520,493,530,519,547,530,563,548,579" />

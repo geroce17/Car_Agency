@@ -17,7 +17,7 @@
         <link href="css/creative.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    <body>
+    <body id="index" class="img-fluid">
 
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
@@ -75,16 +75,25 @@
                     <label class="title"><h2 class="my-4 text-center text-lg-left"><b>Galeria de vehiculos</b></h2></label>
                     <ul class="nav nav-tabs responsive-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#destacados" role="tab"><b>Destacados</b></a>
+                            <a class="nav-link active" data-toggle="tab" href="#destacados" role="tab"><b>Todos</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#nuevos" role="tab"><b>Nuevos</b></a>
+                            <a class="nav-link" data-toggle="tab" href="#nuevos" role="tab"><b>Autos</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#usados" role="tab"><b>Usados</b></a>
+                            <a class="nav-link" data-toggle="tab" href="#nuevos" role="tab"><b>Crossovers y suvs</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#masvendidos" role="tab"><b>Mas vendidos</b></a>
+                            <a class="nav-link" data-toggle="tab" href="#usados" role="tab"><b>Pick-ups</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-dtoggle="tab" href="#masvendidos" role="tab"><b>Comerciales</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#masvendidos" role="tab"><b>Híbridos y Eléctricos</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#masvendidos" role="tab"><b>Deportivos</b></a>
                         </li>
                     </ul>
                 </nav>
@@ -97,14 +106,14 @@
                                     PreparedStatement command;
                                     ResultSet result;
                                     HttpSession sessionInfo = request.getSession();
-                                    int limit = 5;
 
                                     String codigo = request.getParameter("CountryCode");
 
                                     try
                                     {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                        connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
+                                        //connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
 
                                         command = connection.prepareStatement("SELECT Name, District FROM city WHERE CountryCode = 'MEX'");
                                         //command.setString(1, codigo);
@@ -116,7 +125,7 @@
                                             out.println("<div class=" + "'col-md-3'"+">");
                                             out.println("<a href='vehicle-Information.jsp' ta"+"rget='_self' class='d-block mb-4 h-100'>");
                                             out.println("<img class='img-fluid img-thumbnail'"+" src='http://placehold.it/400x300' alt=''>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "ize: 18px'><b>" + result.getString(1) + "</b></div>");
+                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(1) + "</b></div>");
                                             out.println("<div style='position:relative; top:-"+"60px; left:10px; z-index: 1'><p style='color: gray"+"'>Desde: <b style='color: #c82333'>" + result.getString(2) + "</b></p><"+"/div>");
                                             out.println("</a>");
                                             out.println("</div>");
@@ -267,30 +276,30 @@
         <section style="padding-top: 0px; padding-bottom: 0px">
             <div class="bg-dark" style="width: 100%; padding-top: 150px; padding-bottom: 150px;">
                 <div class="container">
-                    <label style="color: white"><h2 class="my-4 text-center text-lg-left"><b>Galeria de vehiculos</b></h2></label>
+                    <label style="color: white"><h2 class="my-4 text-center text-lg-left"><b>Cotización</b></h2></label>
                     <form action="email-enviado.jsp" method="post" class="form-inline">
                         <div style="padding-bottom: 15px" class="col-md-5">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/Util/iconperson.png"></div>
-                                <input name="nombre" type="text" class="form-control" id="txtNombre" placeholder="*Nombre">
+                                <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/util/iconperson.png"></div>
+                                <input name="nombre" type="text" class="form-control" id="txtNombre" placeholder="*Nombre" required>
                             </div>
                         </div>
                         <div style="padding-bottom: 15px" class="col-md-7">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/Util/iconperson.png"></div>
-                                <input name="apellido" type="text" class="form-control" id="txtApellido" placeholder="*Apellido">
+                                <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/util/iconperson.png"></div>
+                                <input name="apellido" type="text" class="form-control" id="txtApellido" placeholder="*Apellido" required>
                             </div>
                         </div>
                         <div style="padding-bottom: 15px" class="col-md-3">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/Util/icontelephone.png"></div>
-                                <input name="telefono" type="text" class="form-control" id="txtTelefono" placeholder="*Teléfono">
+                                <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/util/icontelephone.png"></div>
+                                <input name="telefono" type="tel" pattern="\d*" class="form-control" id="txtTelefono" placeholder="*Teléfono" required>
                             </div>
                         </div>
                         <div style="padding-bottom: 15px;" class="col-md-6">
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon">@</div>
-                                <input name="email" type="text" class="form-control" id="txtEmail" placeholder="*Email">
+                                <input name="email" type="text" class="form-control" id="txtEmail" placeholder="*Email" required>
                             </div>
                         </div>
                         <div style="padding-bottom: 15px" class="col-md-3">

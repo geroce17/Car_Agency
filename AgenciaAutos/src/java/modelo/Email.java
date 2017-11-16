@@ -25,7 +25,7 @@ public class Email {
             String de = "estoesfalso00@gmail.com";
             String clave = "estoesfalso12";
             String asunto = "Cotizacion";
-            String para = "correodestinoaqui@gmail";
+            String para = "dchacon@ucol.mx";
 
             String host = "smtp.gmail.com";
 

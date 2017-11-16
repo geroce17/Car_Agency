@@ -14,8 +14,13 @@
     transition: opacity .15s ease-out;
 }
 
-body {
+#index{
     background-image: url("../img/CF9.jpg");
+    background-attachment: fixed;
+}
+
+#prueba {
+    background-image: url("../img/CF9N.jpg");
     background-attachment: fixed;
 }
 
@@ -190,4 +195,12 @@ body {
     color: white;
     background-image: none;
     background-color: #ED6E59;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
 }
