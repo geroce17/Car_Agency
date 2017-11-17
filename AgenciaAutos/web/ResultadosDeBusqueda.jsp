@@ -3,7 +3,8 @@
     Created on : 16/11/2017, 06:23:18 AM
     Author     : geroC
 --%>
-
+<%@page import="java.io.IOException"%>
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,7 @@
         <link rel="stylesheet" href="css/styles.css">
         <link href="css/creative.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet"> 
         <title>Resultados de busqueda</title>
     </head>
     <body>
@@ -27,12 +29,6 @@
                 <div align="right" class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#titleCatalogue">Galería de vehiculos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">Cotización</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="pruebaManejo.jsp" target="_self">Agendar prueba de manejo</a>
                         </li>
                     </ul>
@@ -43,5 +39,26 @@
                 </div>
             </div>
         </nav>
+
+        <section>
+            <div class="container">
+                <div class="row text-center text-lg-left">
+                    <% ResultSet nombre = (ResultSet) session.getAttribute("Name");
+                        if(!nombre.next()){
+                            out.println("No se han encontrado resultados");
+                        }
+                        while (nombre.next()) {
+                            out.println(nombre.getString(1) + "-" + nombre.getString(2));
+                        }
+                    %>
+                </div>
+            </div>
+        </section>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js"></script>
+
     </body>
 </html>
