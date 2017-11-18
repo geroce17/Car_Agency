@@ -44,9 +44,6 @@
             <div class="container">
                 <div class="row text-center text-lg-left">
                     <% ResultSet nombre = (ResultSet) session.getAttribute("Name");
-                        if(!nombre.next()){
-                            out.println("No se han encontrado resultados");
-                        }
                         while (nombre.next()) {
                             out.println(nombre.getString(1) + "-" + nombre.getString(2));
                         }
