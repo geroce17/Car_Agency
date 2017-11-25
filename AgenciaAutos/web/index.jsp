@@ -61,7 +61,7 @@
             </div>
         </nav>
 
-        <header class="masthead text-center text-white d-flex">
+        <header class="masthead text-center text-white d-flex backgroundlight">
 
             <div style="margin: auto" class="container">
                 <%
@@ -128,7 +128,7 @@
                         <%
                             request.getParameter("zone");
                             if (zona != null) {
-                                out.println("<label class='title'><h2 class='my-4 text-center text-lg-left'><b>Galeria de vehiculos de la<h2 id=zonatext><b>" + zona + "</b></h2></b></h2></label>");
+                                out.println("<label class='title'><h2 class='my-4 text-center text-lg-left'><b>Galeria de vehiculos<h2 style='color: blue' id=zonatext><b>" + zona + "</b></h2></b></h2></label>");
                             } else {
                                 out.println("<label class='title'><h2 class='my-4 text-center text-lg-left'><b>Galeria de vehiculos</b></h2></label>");
                             }
@@ -169,25 +169,34 @@
 
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
+                                        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
                                         //connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agency?useSSL=false", "root", "4688");
 
-                                        command = connection.prepareStatement("SELECT Name, District FROM city where CountryCode = ? limit 20");
-                                        command.setString(1, zona);
+                                        //command = connection.prepareStatement("SELECT Name, District FROM city where CountryCode = ? limit 20");
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado  FROM automovil;");
+                                        //command.setString(1, zona);
                                         //command.setString(2, distrito);
                                         result = command.executeQuery();
-                                        if (!result.next()) {
-                                            out.println("<h2 style='margin: auto'>Por favor seleccione su zona</h2>");
-                                        }
+                                        
                                         while (result.next()) {
                                             out.println("<div class=" + "'col-md-3'" + ">");
                                             out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
-                                            out.println("<img class='img-fluid'" + " src='http://placehold.it/400x300' alt=''>");
+                                            out.println("<img class='img-fluid'" + " src='img/Autos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("</a>");
+                                            out.println("</div>");
+                                        }
+                                        /*while (result.next()) {
+                                            out.println("<div class=" + "'col-md-3'" + ">");
+                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Autos/frontierNP300.jpg' alt=''>");
                                             out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(1) + "</b></div>");
                                             out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>" + result.getString(2) + "</b></p><" + "/div>");
                                             out.println("</a>");
                                             out.println("</div>");
-                                        }
+                                        }*/
                                     } catch (Exception e) {
                                         System.out.println(e.getMessage());
                                     }
