@@ -77,9 +77,9 @@
                         <img style="width: 70%" class="img-fluid" src="img/util/zonemap3.png" alt="zone map" usemap="#mexicomap">
 
                         <map name="mexicomap" id="mexicomap">
-                            <area onclick="showZone(this)"  alt="mex" title="northzone" shape="poly" coords="563,618,587,606,594,592,553,532,510,430,447,327,381,227,369,187,368,160,361,134,361,110,399,134,421,149,441,160,442,177,452,211,471,251,465,264,482,267,522,333,549,346,570,383,587,407,606,424,600,455,602,471,631,485,650,501,664,524,690,543,704,559,719,577,728,588,737,605,752,623,763,635,779,642,778,646,787,640,793,631,794,618,818,624,823,637,837,649,851,641,862,614,878,581,881,560,906,545,943,538,935,523,937,512,953,509,969,506,984,515,1004,525,1015,533,1025,537,1032,531,1027,516,1030,505,1052,503,1048,490,1025,468,1012,444,1025,425,1037,418,1029,395,1031,385,1047,361,1065,365,1067,355,1016,277,997,254,974,253,950,248,930,261,925,274,927,283,918,286,900,296,876,282,854,266,837,230,821,198,800,183,776,158,756,140,681,138,671,159,644,162,543,156,374,77,373,64,261,65,274,99,283,132,295,155,304,188,310,213,327,237,346,248,358,265,371,279,383,311,369,328,336,331,384,382,404,392,425,398,445,421,469,453,470,481,464,490,462,505,462,520,493,530,519,547,530,563,548,579" />
-                            <area onclick="showZone(this)" alt="Zona Centro" title="centerzone" href="#sectioncarousel" shape="poly" coords="778,655,792,639,796,622,816,634,825,639,843,645,851,637,859,606,886,548,909,541,931,543,946,542,937,517,962,506,1020,534,1029,528,1024,508,1030,497,1049,499,1053,494,1009,438,1037,398,1028,391,1045,378,1057,360,1071,364,1085,375,1089,397,1097,421,1113,438,1150,452,1176,454,1184,459,1202,455,1204,463,1198,478,1196,493,1187,505,1180,529,1179,556,1178,567,1180,594,1178,615,1174,649,1145,677,1145,648,1161,649,1143,688,1146,709,1160,716,1153,738,1145,751,1161,752,1171,748,1166,775,1158,788,1175,797,1191,814,1173,824,1162,826,1139,811,1137,839,1137,851,1139,862,1121,872,1135,887,1152,895,1162,918,1173,940,1150,976,1143,975,1123,967,1092,963,1056,946,1035,938,1021,938,986,912,972,892,958,898,884,869,872,851,861,843,845,832,819,820,789,790,777,760,781,753,797,750,798,742,788,742,799,726,799,703" />
-                            <area onclick="showZone(this)" alt="Zona Sur" title="southzone" href="#sectioncarousel" shape="poly" coords="1144,976,1158,968,1166,962,1173,944,1158,926,1157,910,1151,900,1151,893,1137,890,1127,882,1119,872,1131,864,1140,862,1138,854,1135,842,1139,828,1139,815,1140,808,1148,813,1154,822,1162,828,1168,823,1176,822,1180,818,1194,814,1184,806,1178,799,1169,796,1160,798,1159,788,1160,778,1165,773,1164,765,1156,764,1164,758,1167,754,1172,745,1174,739,1162,746,1150,757,1145,760,1143,750,1149,742,1155,737,1161,726,1161,718,1156,713,1148,713,1146,707,1146,699,1139,691,1145,684,1144,675,1149,662,1146,654,1141,650,1151,646,1158,644,1161,650,1171,654,1175,656,1178,660,1181,668,1188,677,1196,690,1202,711,1207,734,1224,765,1233,762,1252,794,1273,827,1310,844,1345,860,1360,871,1394,859,1458,838,1518,819,1543,786,1554,747,1549,724,1560,699,1649,664,1716,654,1735,663,1736,688,1734,697,1738,706,1737,723,1732,730,1719,720,1710,732,1710,750,1712,766,1698,844,1683,829,1682,812,1654,852,1635,874,1541,875,1538,910,1520,913,1546,931,1576,955,1576,973,1514,975,1486,1022,1494,1030,1484,1062,1386,986,1324,978,1267,1011,1194,1004" />
+                            <area onclick="showZone(this)"  alt="Zona Norte" title="Zona Norte" shape="poly" coords="563,618,587,606,594,592,553,532,510,430,447,327,381,227,369,187,368,160,361,134,361,110,399,134,421,149,441,160,442,177,452,211,471,251,465,264,482,267,522,333,549,346,570,383,587,407,606,424,600,455,602,471,631,485,650,501,664,524,690,543,704,559,719,577,728,588,737,605,752,623,763,635,779,642,778,646,787,640,793,631,794,618,818,624,823,637,837,649,851,641,862,614,878,581,881,560,906,545,943,538,935,523,937,512,953,509,969,506,984,515,1004,525,1015,533,1025,537,1032,531,1027,516,1030,505,1052,503,1048,490,1025,468,1012,444,1025,425,1037,418,1029,395,1031,385,1047,361,1065,365,1067,355,1016,277,997,254,974,253,950,248,930,261,925,274,927,283,918,286,900,296,876,282,854,266,837,230,821,198,800,183,776,158,756,140,681,138,671,159,644,162,543,156,374,77,373,64,261,65,274,99,283,132,295,155,304,188,310,213,327,237,346,248,358,265,371,279,383,311,369,328,336,331,384,382,404,392,425,398,445,421,469,453,470,481,464,490,462,505,462,520,493,530,519,547,530,563,548,579" />
+                            <area onclick="showZone(this)" alt="Zona Centro" title="Zona Centro" href="#sectioncarousel" shape="poly" coords="778,655,792,639,796,622,816,634,825,639,843,645,851,637,859,606,886,548,909,541,931,543,946,542,937,517,962,506,1020,534,1029,528,1024,508,1030,497,1049,499,1053,494,1009,438,1037,398,1028,391,1045,378,1057,360,1071,364,1085,375,1089,397,1097,421,1113,438,1150,452,1176,454,1184,459,1202,455,1204,463,1198,478,1196,493,1187,505,1180,529,1179,556,1178,567,1180,594,1178,615,1174,649,1145,677,1145,648,1161,649,1143,688,1146,709,1160,716,1153,738,1145,751,1161,752,1171,748,1166,775,1158,788,1175,797,1191,814,1173,824,1162,826,1139,811,1137,839,1137,851,1139,862,1121,872,1135,887,1152,895,1162,918,1173,940,1150,976,1143,975,1123,967,1092,963,1056,946,1035,938,1021,938,986,912,972,892,958,898,884,869,872,851,861,843,845,832,819,820,789,790,777,760,781,753,797,750,798,742,788,742,799,726,799,703" />
+                            <area onclick="showZone(this)" alt="Zona Sur" title="Zona Sur" href="#sectioncarousel" shape="poly" coords="1144,976,1158,968,1166,962,1173,944,1158,926,1157,910,1151,900,1151,893,1137,890,1127,882,1119,872,1131,864,1140,862,1138,854,1135,842,1139,828,1139,815,1140,808,1148,813,1154,822,1162,828,1168,823,1176,822,1180,818,1194,814,1184,806,1178,799,1169,796,1160,798,1159,788,1160,778,1165,773,1164,765,1156,764,1164,758,1167,754,1172,745,1174,739,1162,746,1150,757,1145,760,1143,750,1149,742,1155,737,1161,726,1161,718,1156,713,1148,713,1146,707,1146,699,1139,691,1145,684,1144,675,1149,662,1146,654,1141,650,1151,646,1158,644,1161,650,1171,654,1175,656,1178,660,1181,668,1188,677,1196,690,1202,711,1207,734,1224,765,1233,762,1252,794,1273,827,1310,844,1345,860,1360,871,1394,859,1458,838,1518,819,1543,786,1554,747,1549,724,1560,699,1649,664,1716,654,1735,663,1736,688,1734,697,1738,706,1737,723,1732,730,1719,720,1710,732,1710,750,1712,766,1698,844,1683,829,1682,812,1654,852,1635,874,1541,875,1538,910,1520,913,1546,931,1576,955,1576,973,1514,975,1486,1022,1494,1030,1484,1062,1386,986,1324,978,1267,1011,1194,1004" />
                         </map>
                     </div>
                 </div>
@@ -128,9 +128,10 @@
                         <%
                             request.getParameter("zone");
                             if (zona != null) {
-                                out.println("<label class='title'><h2 class='my-4 text-center text-lg-left'><b>Galeria de vehiculos<h2 style='color: blue' id=zonatext><b>" + zona + "</b></h2></b></h2></label>");
+                                out.println("<form><input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none;' type='text' value='Galeria de vehiculos'>"
+                                        + "<input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none' type='text' name='currentZone' value ='" + zona + "' readonly></form>");
                             } else {
-                                out.println("<label class='title'><h2 class='my-4 text-center text-lg-left'><b>Galeria de vehiculos</b></h2></label>");
+                                out.println("<input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none' type='text' value='Galeria de vehiculos'>");
                             }
                         %>
                         <ul style="margin: auto" class="nav nav-tabs responsive-tabs" role="tablist">
@@ -144,7 +145,7 @@
                                 <a class="nav-link" data-toggle="tab" href="#crossovers-suvs" role="tab"><b>Crossovers y suvs</b></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#pick-ups" role="tab"><b>Pick-ups</b></a>
+                                <a class="nav-link" data-toggle="tab" href="#pick-ups" role="tab"><b>Pickups</b></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#comerciales" role="tab"><b>Comerciales</b></a>
@@ -171,18 +172,18 @@
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
                                         //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
                                         //connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
-                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agency?useSSL=false", "root", "4688");
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
 
                                         //command = connection.prepareStatement("SELECT Name, District FROM city where CountryCode = ? limit 20");
-                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado  FROM automovil;");
-                                        //command.setString(1, zona);
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? ;");
+                                        command.setString(1, zona);
                                         //command.setString(2, distrito);
                                         result = command.executeQuery();
                                         
                                         while (result.next()) {
-                                            out.println("<div class=" + "'col-md-3'" + ">");
+                                            out.println("<div class=" + "'col-md-6'" + ">");
                                             out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
-                                            out.println("<img class='img-fluid'" + " src='img/Autos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
                                             out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
                                             out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>$" + result.getString(3) + "</b></p><" + "/div>");
                                             out.println("</a>");
@@ -206,35 +207,41 @@
 
                         <div class="tab-pane fade" id="autos" role="tabpanel">
                             <div class="row text-center text-lg-left">
+                                <%
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
+                                        //connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
 
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
+                                        //command = connection.prepareStatement("SELECT Name, District FROM city where CountryCode = ? limit 20");
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado  FROM automovil;");
+                                        //command.setString(1, zona);
+                                        //command.setString(2, distrito);
+                                        result = command.executeQuery();
+                                        
+                                        while (result.next()) {
+                                            out.println("<div class=" + "'col-md-6'" + ">");
+                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("</a>");
+                                            out.println("</div>");
+                                        }
+                                        /*while (result.next()) {
+                                            out.println("<div class=" + "'col-md-3'" + ">");
+                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Autos/frontierNP300.jpg' alt=''>");
+                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(1) + "</b></div>");
+                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>" + result.getString(2) + "</b></p><" + "/div>");
+                                            out.println("</a>");
+                                            out.println("</div>");
+                                        }*/
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
+                                %>
                             </div>
                         </div>
 
