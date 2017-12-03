@@ -170,34 +170,21 @@
 
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
-                                        //connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
                                         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
 
-                                        //command = connection.prepareStatement("SELECT Name, District FROM city where CountryCode = ? limit 20");
                                         command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? ;");
                                         command.setString(1, zona);
-                                        //command.setString(2, distrito);
                                         result = command.executeQuery();
-                                        
+
                                         while (result.next()) {
                                             out.println("<div class=" + "'col-md-6'" + ">");
                                             out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
                                             out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><b style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
                                             out.println("</a>");
                                             out.println("</div>");
                                         }
-                                        /*while (result.next()) {
-                                            out.println("<div class=" + "'col-md-3'" + ">");
-                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
-                                            out.println("<img class='img-fluid'" + " src='img/Autos/frontierNP300.jpg' alt=''>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(1) + "</b></div>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>" + result.getString(2) + "</b></p><" + "/div>");
-                                            out.println("</a>");
-                                            out.println("</div>");
-                                        }*/
                                     } catch (Exception e) {
                                         System.out.println(e.getMessage());
                                     }
@@ -210,34 +197,21 @@
                                 <%
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                        //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world?useSSL=false", "root", "4688");
-                                        //connection = DriverManager.getConnection("jdbc:mysql://mysql31691-getacar.jl.serv.net.mx/world", "root", "dUh7Hmkszh");
                                         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
 
-                                        //command = connection.prepareStatement("SELECT Name, District FROM city where CountryCode = ? limit 20");
-                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado  FROM automovil;");
-                                        //command.setString(1, zona);
-                                        //command.setString(2, distrito);
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Auto';");
+                                        command.setString(1, zona);
                                         result = command.executeQuery();
-                                        
+
                                         while (result.next()) {
                                             out.println("<div class=" + "'col-md-6'" + ">");
                                             out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
                                             out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><b style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
                                             out.println("</a>");
                                             out.println("</div>");
                                         }
-                                        /*while (result.next()) {
-                                            out.println("<div class=" + "'col-md-3'" + ">");
-                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
-                                            out.println("<img class='img-fluid'" + " src='img/Autos/frontierNP300.jpg' alt=''>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1;color: #004085; font-s" + "size: 18px'><b>" + result.getString(1) + "</b></div>");
-                                            out.println("<div style='position:relative; top:-" + "60px; left:10px; z-index: 1'><p style='color: gray" + "'>Desde: <b style='color: #c82333'>" + result.getString(2) + "</b></p><" + "/div>");
-                                            out.println("</a>");
-                                            out.println("</div>");
-                                        }*/
                                     } catch (Exception e) {
                                         System.out.println(e.getMessage());
                                     }
@@ -247,168 +221,141 @@
 
                         <div class="tab-pane fade" id="crossovers-suvs" role="tabpanel">
                             <div class="row text-center text-lg-left">
+                                <%
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
 
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Crossover';");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+
+                                        while (result.next()) {
+                                            out.println("<div class=" + "'col-md-6'" + ">");
+                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><b style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("</a>");
+                                            out.println("</div>");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
+                                %>
                             </div>
                         </div>
 
                         <div class="tab-pane fade" id="pick-ups" role="tabpanel">
                             <div class="row text-center text-lg-left">
 
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
+                                <%
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+                                        
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Pickup';");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+                                        
+                                        while (result.next()) {
+                                            out.println("<div class=" + "'col-md-6'" + ">");
+                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><b style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("</a>");
+                                            out.println("</div>");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
+                                %>
+                                
                             </div>
                         </div>
                         <div class="tab-pane fade" id="comerciales" role="tabpanel">
                             <div class="row text-center text-lg-left">
 
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
+                                <%
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+                                        
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Comercial';");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+                                        
+                                        while (result.next()) {
+                                            out.println("<div class=" + "'col-md-6'" + ">");
+                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><b style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("</a>");
+                                            out.println("</div>");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
+                                %>
+                                
                             </div>
                         </div>
                         <div class="tab-pane fade" id="hibridos-electricos" role="tabpanel">
                             <div class="row text-center text-lg-left">
 
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
+                                <%
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+                                        
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Hibrido';");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+                                        
+                                        while (result.next()) {
+                                            out.println("<div class=" + "'col-md-6'" + ">");
+                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><b style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("</a>");
+                                            out.println("</div>");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
+                                %>
+                                
                             </div>
                         </div>
                         <div class="tab-pane fade" id="deportivos" role="tabpanel">
                             <div class="row text-center text-lg-left">
 
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="vehicle-Information.jsp" target="_self" class="d-block mb-4 h-100">
-                                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1;color: #004085; font-size: 18px"><b>Nombre auto</b></div>
-                                        <div style="position:relative; top:-60px; left:10px; z-index: 1"><p style="color: gray">Desde: <b style="color: #c82333">precio</b></p></div>
-                                    </a>
-                                </div>
+                                <%
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+                                        
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Deportivo';");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+                                        
+                                        while (result.next()) {
+                                            out.println("<div class=" + "'col-md-6'" + ">");
+                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><b style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("</a>");
+                                            out.println("</div>");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
+                                %>
+                                
                             </div>
                         </div>
                     </div>
