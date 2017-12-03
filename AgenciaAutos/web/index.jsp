@@ -29,7 +29,7 @@
                 <div id="navbarResponsive" align="right" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger navlinks" href="#galeria">Galeria de vehiculos</a>
+                            <a class="nav-link js-scroll-trigger navlinks" href="#galeria">Galeria</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger navlinks" href="#cotizacion">Cotización</a>
@@ -38,9 +38,9 @@
                             <%
                                 String zona = request.getParameter("zone");
                                 if (zona != null) {
-                                    out.println("<a class='nav-link js-scroll-trigger navlinks' href='pruebaManejo.jsp' target='_self'>Agendar prueba de manejo</a>");
+                                    out.println("<a class='nav-link js-scroll-trigger navlinks' href='pruebaManejo.jsp' target='_self'>Prueba de manejo</a>");
                                 } else {
-                                    out.println("<a style='color: dimgray' class='nav-link js-scroll-trigger navlinks disabled' href='pruebaManejo.jsp' target='_self'>Agendar prueba de manejo</a>");
+                                    out.println("<a style='color: dimgray' class='nav-link js-scroll-trigger navlinks disabled' href='pruebaManejo.jsp' target='_self'>Prueba de manejo</a>");
                                 }
                             %>
                         </li>
@@ -177,13 +177,28 @@
                                         result = command.executeQuery();
 
                                         while (result.next()) {
-                                            out.println("<div class=" + "'col-md-6'" + ">");
-                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<div class='col-md-6'>");
                                             out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
-                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
-                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><b style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
-                                            out.println("</a>");
+                                            out.println("<form action='InformacionVehiculo' method='post' style='Background-Color: black; opacity: 0.8; font-size: 18px; margin-bottom: 50px'>");
+                                            out.println("<div class='col-md-12'>");
+                                            out.println("<div class='container'>");
+                                            out.println("<div class='row'>");
+                                            out.println("<input name='modelo' type='text' style='background-color: transparent; border: none; color: #d6ffeb; font-weight: bolder; font-size: 18px' value='" + result.getString(2) +"' size='11' readonly><br>");
                                             out.println("</div>");
+                                            out.println("<div class='row'>");
+                                            out.println("<div class'col-6 align-self-start' style='padding-top: 10px'>");
+                                            out.println("<b style='color: gray; font-size: 18px'>Desde: </b>");
+                                            out.println("<input type='text' style='background-color: transparent; border: none; color: #f4eb42; font-weight: bolder; font-size: 18px' value='" + result.getString(3) + "' size='11' readonly>");
+                                            out.println("</div>");
+                                            out.println("<div class='col-6 align-self-end'>");
+                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Buscar</button>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</form>");
+                                            out.println("</div>");
+                                            
                                         }
                                     } catch (Exception e) {
                                         System.out.println(e.getMessage());
@@ -204,12 +219,17 @@
                                         result = command.executeQuery();
 
                                         while (result.next()) {
-                                            out.println("<div class=" + "'col-md-6'" + ">");
-                                            out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
+                                            out.println("<div class='col-md-6'>");
                                             out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
-                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-s" + "size: 18px'><b>" + result.getString(2) + "</b></div>");
-                                            out.println("<div style='width: 30%; position:relative; top:-" + "60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><b style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
-                                            out.println("</a>");
+                                            out.println("<form>");
+                                            out.println("<div class='col-md-6'>");
+                                            out.println("<div style='position: relative; top:-60px; left:10px; z-index: 1;color: #d6ffeb; Background-Color: black; opacity: 0.7; font-size: 18px'><b>" + result.getString(2) + "</b></div>");
+                                            out.println("<div style='position: relative; top:-60px; left:10px; z-index: 1; Background-Color: black; opacity:0.7;'><p style='color: #f4eb42" + "'><b>Desde: </b><input type='text' style='color: #c1207c'>$" + result.getString(3) + "</b></p><" + "/div>");
+                                            out.println("</div>");
+                                            out.println("<div class='col-md-6'>");
+                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit' style='position: relative; z-index: 1; top: -118px; right: -150px'>Buscar</button>");
+                                            out.println("</div>");
+                                            out.println("<form>");
                                             out.println("</div>");
                                         }
                                     } catch (Exception e) {

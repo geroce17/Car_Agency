@@ -3,7 +3,7 @@
     Created on : Nov 5, 2017, 7:16:51 PM
     Author     : gero
 --%>
-
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -47,10 +47,22 @@
         <div id="col" class="bg-dark" style="height: 56px; width: 100%; position: absolute"></div>
 
 
-
-        <div id="divImage">
-            <img id="divImage" class="img-fluid" src="img/Autos/versa.jpg">
+        <div id="divImage" class="">
+            <% ResultSet vehiculo = (ResultSet) session.getAttribute("modelo");
+                String modelo = "";
+                String color = "";
+                String segmento = "";
+                String cilindraje = null;
+                while (vehiculo.next()) {
+                    out.println("<img id='divImage' class='img-fluid' src='img/Vehiculos/" + vehiculo.getString(1) + "'>");
+                    modelo = vehiculo.getString(2);
+                    color = vehiculo.getString(3);
+                    segmento = vehiculo.getString(4);
+                    cilindraje = vehiculo.getString(5);
+                }
+            %> 
         </div>
+
 
         <section id="atributos" style="width: 100%; background-color: white; padding: 0px !important; margin-top: 150px;">
             <div class="container">
@@ -68,9 +80,9 @@
                             <div class="col-lg-3 col-md-6 text-center">
                                 <div class="service-box mt-5 mx-auto">
                                     <h3 class="mb-3">Modelo</h3>
-                                    <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
-                                        que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
-                                        Existen diversos enfoques para el estudio de la información: Wikipedia</p>
+                                    <%
+                                        out.println("<p class='text-muted mb-0'><h4>" + modelo + "</h4></p>");
+                                    %>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 text-center">
