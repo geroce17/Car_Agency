@@ -18,14 +18,14 @@ public class InformacionVehiculo extends HttpServlet {
         ResultSet result;
         HttpSession sessionInfo = request.getSession();
         
-        String Modelo = request.getParameter("modelo");
+        String Modelo = request.getParameter("selectedvehicle");
         
         try
         {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
             
-            command = connection.prepareStatement("SELECT imagen, modelo, color, segmento, no_puertas, cilindraje, velocidad_max, año, zona FROM automovil where modelo = ? ;");
+            command = connection.prepareStatement("SELECT imagen, modelo, color, segmento, no_puertas, cilindraje, velocidad_max, año, zona, costo_servicio FROM automovil where modelo = ? ;");
             command.setString(1, Modelo);
             result = command.executeQuery();
                     sessionInfo.setAttribute("modelo", result);

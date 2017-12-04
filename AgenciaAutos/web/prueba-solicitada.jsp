@@ -34,13 +34,6 @@
                 "Celular: "+ cel + "<br>"+
             "</p> </div>";
             
-
-            /* 
-                
-                String[] direcciones = {"correo numero 1","correo numero 2","correo numero 3","correo ..."}
-                boolean resultado = email.enviarCorreo(de, clave, direcciones, mensaje, asunto);
-            
-             */
             boolean resultado = email.enviarCorreo(mensaje);
 
             if (resultado) {

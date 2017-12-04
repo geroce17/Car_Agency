@@ -29,6 +29,7 @@
             String velocidadmax = "";
             String año = "";
             String zona = "";
+            String costoservicio = "";
         %>
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
@@ -75,6 +76,7 @@
                     velocidadmax = vehiculo.getString(7);
                     año = vehiculo.getString(8);
                     zona = vehiculo.getString(9);
+                    costoservicio = vehiculo.getString(10);
                 }
             %> 
         </div>
@@ -97,7 +99,7 @@
                                 <div class="service-box mt-5 mx-auto" style="text-align: justify">
                                     <h3 class="mb-3" style="text-align: center">Aspectos técnicos</h3>
                                     <%
-                                        out.println("<p class='text-muted mb-0'><h4>El nuevo Nissan " + modelo + " " + año + " Cuenta con un poderoso motor de " + cilindraje + " cilindros"
+                                        out.println("<p class='text-muted mb-0'><h4>El nuevo Nissan " + modelo + " " + año + " cuenta con un poderoso motor de " + cilindraje + " cilindros"
                                                 + " que le brinda una velocidad de hasta " + velocidadmax + " Km/H.</h4></p>");
                                     %>
                                 </div>
@@ -238,8 +240,10 @@
                             </div>
                         </div>
                     </div>
-                    <p style="text-align: right">Costo de servicio: $1223<br>
-                        El costo del servicio puede variar dependiendo del auto</p>
+                    <%
+                        out.println("<p style='text-align: right;color:red;font-weight:bolder'>Costo de servicio: $" + costoservicio + "<br>" +
+                        "El costo del servicio puede variar dependiendo del kilometraje del auto</p>");
+                    %>
                 </section>
             </div>
             <div id="footer" style="padding-top: 60px; padding-bottom: 60px;" class="bg-dark">
@@ -251,8 +255,7 @@
                     <a href="#" class="fa fa-google"></a>
                 </div>
             </div>
-            <%
-                out.println("<form action='' method=''>");
+            <%                out.println("<form action='' method=''>");
                 out.println("<input type='text' style='color:blue; display:none' name='zona' value='" + zona + "'>");
                 out.println("</form>");
             %>

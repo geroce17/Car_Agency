@@ -20,18 +20,12 @@
             String lastname = request.getParameter("apellido");
             String phone = request.getParameter("telefono");
             String emailu = request.getParameter("email");
-            String vehicle = request.getParameter("SelectVehicle");
+            String vehicle = request.getParameter("vehiculo");
             
-            String mensaje = "<p style='font-size: 20px'>El usuario " + name + " " + lastname + " ha solicitado una cotizacion del vehiculo: " + vehicle + "<br>"
+            String mensaje = "<p style='font-size: 20px'>El usuario " + name + " " + lastname + " ha solicitado una cotizacion del vehiculo Nissan : " + vehicle + "<br>"
                     + "<br><br>Contacto<br>"+ emailu + "<br>" + phone + "</p>";
+            out.println(mensaje);
             
-
-            /* 
-                
-                String[] direcciones = {"correo numero 1","correo numero 2","correo numero 3","correo ..."}
-                boolean resultado = email.enviarCorreo(de, clave, direcciones, mensaje, asunto);
-            
-             */
             boolean resultado = email.enviarCorreo(mensaje);
 
             if (resultado) {
