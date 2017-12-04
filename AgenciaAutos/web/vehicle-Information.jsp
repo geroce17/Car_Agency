@@ -3,6 +3,9 @@
     Created on : Nov 5, 2017, 7:16:51 PM
     Author     : gero
 --%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,11 +19,21 @@
         <title>Información del vehiculo</title>
     </head>
     <body>
-
+        <%
+            ResultSet vehiculo = (ResultSet) session.getAttribute("modelo");
+            String modelo = "";
+            String color = "";
+            String segmento = "";
+            String cilindraje = "";
+            String nopuertas = "";
+            String velocidadmax = "";
+            String año = "";
+            String zona = "";
+        %>
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
-                <img id="logo" class="img-fluid" src="img/masterc.jpeg" alt="logoimg" align="left">
-                <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="index.jsp" target="_self">Agencia de vehiculos</a>
+                <img id="logo" class="img-fluid" src="img/logoc.png" alt="logoimg" align="left">
+                <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="index.jsp" target="_self">Inicio</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,21 +57,24 @@
             </div>
         </nav>
 
+        <form>
+            <input name="model" type="text" class="form-text" value="estoesunaprueba">
+        </form>
         <div id="col" class="bg-dark" style="height: 56px; width: 100%; position: absolute"></div>
 
 
         <div id="divImage" class="">
-            <% ResultSet vehiculo = (ResultSet) session.getAttribute("modelo");
-                String modelo = "";
-                String color = "";
-                String segmento = "";
-                String cilindraje = null;
+            <%
                 while (vehiculo.next()) {
-                    out.println("<img id='divImage' class='img-fluid' src='img/Vehiculos/" + vehiculo.getString(1) + "'>");
+                    out.println("<img id='divImage' class='img-fluid' src='img/Vehiculos/banner/" + vehiculo.getString(1) + "'>");
                     modelo = vehiculo.getString(2);
                     color = vehiculo.getString(3);
                     segmento = vehiculo.getString(4);
-                    cilindraje = vehiculo.getString(5);
+                    nopuertas = vehiculo.getString(5);
+                    cilindraje = vehiculo.getString(6);
+                    velocidadmax = vehiculo.getString(7);
+                    año = vehiculo.getString(8);
+                    zona = vehiculo.getString(9);
                 }
             %> 
         </div>
@@ -77,49 +93,49 @@
                     </div>
                     <div class="container">
                         <div class="row justify-content-md-center">
-                            <div class="col-lg-3 col-md-6 text-center">
-                                <div class="service-box mt-5 mx-auto">
-                                    <h3 class="mb-3">Modelo</h3>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="service-box mt-5 mx-auto" style="text-align: justify">
+                                    <h3 class="mb-3" style="text-align: center">Aspectos técnicos</h3>
                                     <%
-                                        out.println("<p class='text-muted mb-0'><h4>" + modelo + "</h4></p>");
+                                        out.println("<p class='text-muted mb-0'><h4>El nuevo Nissan " + modelo + " " + año + " Cuenta con un poderoso motor de " + cilindraje + " cilindros"
+                                                + " que le brinda una velocidad de hasta " + velocidadmax + " Km/H.</h4></p>");
                                     %>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 text-center">
-                                <div class="service-box mt-5 mx-auto">
-                                    <h3 class="mb-3">Cilindraje</h3>
-                                    <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
-                                        que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
-                                        Existen diversos enfoques para el estudio de la información: Wikipedia</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 text-center">
-                                <div class="service-box mt-5 mx-auto">
-                                    <h3 class="mb-3">Rendimiento</h3>
-                                    <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
-                                        que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
-                                        Existen diversos enfoques para el estudio de la información: Wikipedia</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 text-center">
-                                <div class="service-box mt-5 mx-auto">
-                                    <h3 class="mb-3">No. Puertas</h3>
-                                    <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
-                                        que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
-                                        Existen diversos enfoques para el estudio de la información: Wikipedia</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 text-center">
-                                <div class="service-box mt-5 mx-auto">
-                                    <h3 class="mb-3">Llantas</h3>
-                                    <p class="text-muted mb-0">a información es un conjunto organizado de datos procesados, 
-                                        que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje. 
-                                        Existen diversos enfoques para el estudio de la información: Wikipedia</p>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="service-box mt-5 mx-auto" style="text-align: justify">
+                                    <h3 class="mb-3" style="text-align: center">Diseño</h3>
+                                    <%
+                                        out.println("<p class='text-muted mb-0' style='text-align: justify;'><h4>Uno de los aspectos mas importantes son el diseño, para el eso el Nissan " + modelo + " " + año + " cuenta con " + nopuertas + " puertas, además de un color " + color + ""
+                                                + " de la mas alta calidad.</h4></p>");
+                                    %>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+                <%
+                    Connection connection;
+
+                    PreparedStatement command;
+                    ResultSet result;
+                    HttpSession sessionInfo = request.getSession();
+
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+
+                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? ;");
+                        command.setString(1, zona);
+                        result = command.executeQuery();
+
+                        while (result.next()) {
+
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                %>
             </div>
         </section>
 
@@ -128,12 +144,16 @@
                 <div class="container">
                     <div class="row">
                         <div id="servicios" class="col-lg-12 text-center">
-                            <h2 class="section-heading">Servicios</h2>
+                            <h2 class="section-heading">SERVICIOS</h2>
                             <hr class="my-4">
+                            <p><h4>La afinación forma parte del mantenimiento básico de un automóvil y debe realizarse con una periodicidad recomendable de 6 meses o un año como máximo.</h4></p>
                         </div>
                     </div>
                 </div>
                 <section class="p-0" id="portfolio">
+                    <a href="#" class="list-group-item active" style="text-align: center">
+                        Servicio Regular
+                    </a>
                     <div class="container-fluid p-0">
                         <div class="justify-content-md-center row no-gutters popup-gallery">
                             <div class="col-lg-4 col-sm-6">
@@ -141,11 +161,8 @@
                                     <img class="img-fluid" src="img/util/cambio-ruedas.jpg" alt="">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
-                                            <div class="project-category text-faded">
-                                                Cambio de llantas
-                                            </div>
                                             <div class="project-name">
-                                                $Precio
+                                                Presion de llantas
                                             </div>
                                         </div>
                                     </div>
@@ -156,11 +173,8 @@
                                     <img class="img-fluid" src="img/util/oil-cha.jpg" alt="">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
-                                            <div class="project-category text-faded">
-                                                Cambio de aceite
-                                            </div>
                                             <div class="project-name">
-                                                $Precio
+                                                Cambio de aceite
                                             </div>
                                         </div>
                                     </div>
@@ -171,11 +185,8 @@
                                     <img class="img-fluid" src="img/util/coche-lavar.jpg" alt="">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
-                                            <div class="project-category text-faded">
-                                                Lavado de coche
-                                            </div>
                                             <div class="project-name">
-                                                $Precio
+                                                Lavado de coche
                                             </div>
                                         </div>
                                     </div>
@@ -183,9 +194,55 @@
                             </div>
                         </div>
                     </div>
+                    <a href="#" class="list-group-item active" style="text-align: center">
+                        Servicio Estándar
+                    </a>
+                    <div class="row justify-content-center">
+                        <div class="col-md-2">
+
+                        </div>
+
+                        <div class="col-md-10"><div class="list-group">
+
+                                <a class="list-group-item list-group-item-action">Cambio de bujias</a>
+                                <a class="list-group-item list-group-item-action">Cambio de aceite</a>
+                                <a class="list-group-item list-group-item-action">Revisión de filtros de aceite</a>
+                                <a class="list-group-item list-group-item-action disabled">Limpieza de válvulas</a>
+                                <a class="list-group-item list-group-item-action disabled">Limpieza del cuerpo de aceleracion</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="list-group-item active" style="text-align: center">
+                        Servicio Plus HD Edition
+                    </a>
+                    <div class="row justify-content-center">
+                        <div class="col-md-2">
+
+                        </div>
+
+                        <div class="col-md-10"><div class="list-group">
+                                <a class="list-group-item list-group-item-action">Inspeccion de liquido de frenos</a>
+                                <a class="list-group-item list-group-item-action">Líquido de los limpiaparabrisas</a>
+                                <a class="list-group-item list-group-item-action">Filtro de aire y de respiración</a>
+                                <a class="list-group-item list-group-item-action">Radiador y líquido anticolgelante</a>
+                                <a class="list-group-item list-group-item-action disabled">Aceite de la dirección hidráulica</a>
+                                <a class="list-group-item list-group-item-action disabled">Aceite de la transmisión o transeje</a>
+                                <a class="list-group-item list-group-item-action disabled">Revisión de engrasado del chasis</a>
+                                <a class="list-group-item list-group-item-action disabled">Aceite del diferencial</a>
+                                <a class="list-group-item list-group-item-action disabled">Presión de llantas</a>
+                                <a class="list-group-item list-group-item-action disabled">Carga o líquido de la batería</a>
+                                <a class="list-group-item list-group-item-action disabled">Lavado exterior de ventanas, faros y espejos</a>
+                                <a class="list-group-item list-group-item-action disabled">Aspirado interior</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <p style="text-align: right">Costo de servicio: $1223<br>
+                        El costo del servicio puede variar dependiendo del auto</p>
                 </section>
             </div>
-            <div id="footer" style="padding-top: 60px; padding-bottom: 60px" class="bg-dark">
+            <div id="footer" style="padding-top: 60px; padding-bottom: 60px;" class="bg-dark">
                 <div class="container">
                     <label class="title"><h2 class="my-4 text-center text-lg-left"><b>Contactanos en</b></h2></label>
                     <h5 style="color: white">Calle Lic. Carlos de La Madrid Béjar 891<br> Centro, 28000 Colima, Col.</h5>
@@ -194,6 +251,11 @@
                     <a href="#" class="fa fa-google"></a>
                 </div>
             </div>
+            <%
+                out.println("<form action='' method=''>");
+                out.println("<input type='text' style='color:blue; display:none' name='zona' value='" + zona + "'>");
+                out.println("</form>");
+            %>
         </section>
 
         <script>

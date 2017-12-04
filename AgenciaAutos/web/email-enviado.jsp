@@ -20,7 +20,7 @@
             String lastname = request.getParameter("apellido");
             String phone = request.getParameter("telefono");
             String emailu = request.getParameter("email");
-            String vehicle = request.getParameter("vehiculo");
+            String vehicle = request.getParameter("SelectVehicle");
             
             String mensaje = "<p style='font-size: 20px'>El usuario " + name + " " + lastname + " ha solicitado una cotizacion del vehiculo: " + vehicle + "<br>"
                     + "<br><br>Contacto<br>"+ emailu + "<br>" + phone + "</p>";

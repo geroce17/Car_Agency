@@ -4,6 +4,7 @@
     Author     : gero
 --%>
 
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@
 
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
-                <img id="logo" class="img-fluid" src="img/masterc.jpeg" alt="logoimg" align="left">
+                <img id="logo" class="img-fluid" src="img/logoc.png" alt="logoimg" align="left">
                 <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="index.jsp" target="_self">Get a Car</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -44,7 +45,7 @@
             </div>
         </nav>
 
-        <form action="prueba-solicitada.jsp" method="post">
+        <form id="formcar">
             <header class="masthead text-white d-flex backgrounddark">
 
                 <div style="margin: auto" class="container">
@@ -56,18 +57,23 @@
 
                                 <div id="seleccionaAuto" class="col-md-12">
                                     <h2 style="color: white"><b>Elige tu vehiculo</b></h2>
-                                    <select id="span_small" class="form-control select2-single select2-hidden-accessible" tabindex="-1" aria-hidden="true" name="selectedvehicle" required>
-                                        <option value="">*Elige un vehiculo</option>
-                                        <optgroup label="Alaskan/Hawaiian Time Zone">
-                                            <option value="Alaska">Alaska</option>
-                                        </optgroup>
-                                        <optgroup label="Pacific Time Zone">
-                                            <option value="California">California</option>
-                                            <option value="Nevada">Nevada</option>
-                                            <option value="Oregon">Oregon</option>
-                                            <option value="Washington">Washington</option>
-                                        </optgroup>
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <select name="SelectVehicle" id="span_small" class="form-control select2-single select2-hidden-accessible" aria-hidden="true" required>
+                                                <option value="">Elige un vehiculo</option>
+                                                <%
+                                                    ResultSet vehiculo = (ResultSet) session.getAttribute("zona");
+                                                    while (vehiculo.next()) {
+                                                        out.println("<option style='font-weight: bolder' value='" + vehiculo.getString(1) + "'>" + vehiculo.getString(1) + "</option>");
+                                                    }
+                                                %>
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="ver">
+                                        </div>
+                                    </div>
 
                                     <div id="divSelectedCar" class="container">
                                         <div class="row">
@@ -169,7 +175,7 @@
                                     </div>
                                 </div>
                                 <div style="padding-top: 5px;" align="center">
-                                    <button class="btn btn-primary" type="submit">Agendar prueba de manejo</button>
+                                    <button class="btn btn-primary" onclick="validaEmail()" >Agendar prueba de manejo</button>
                                 </div>
                             </div>
                         </div> 
@@ -197,18 +203,18 @@
         <script src="plugins/jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
 
         <script>
-            window.onscroll = function () {
-                myFunction();
-            };
+                                        window.onscroll = function () {
+                                            myFunction();
+                                        };
 
-            function myFunction() {
-                if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-                    document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
-                } else
-                {
-                    document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
-                }
-            }
+                                        function myFunction() {
+                                            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                                                document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
+                                            } else
+                                            {
+                                                document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
+                                            }
+                                        }
         </script>
 
         <script>
@@ -218,6 +224,18 @@
             $(document).ready(function (e) {
                 $('img[usemap]').rwdImageMaps();
             });
+
+            function validaEmail() {
+                document.getElementById('formcar').action = 'prueba-solicitada.jsp';
+                document.getElementById('formcar').method = 'POST';
+                document.getElementById('formcar').submit();
+            }
+
+            function validaAuto() {
+                document.getElementById('formcar').action = '';
+                document.getElementById('formcar').method = 'POST';
+                document.getElementById('formcar').submit();
+            }
         </script>
 
 

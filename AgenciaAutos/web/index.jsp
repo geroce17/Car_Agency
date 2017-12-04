@@ -21,7 +21,7 @@
     <body>
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
-                <img id="logo" class="img-fluid" src="img/masterc.jpeg" alt="logoimg" align="left">
+                <img id="logo" class="img-fluid" src="img/logoc.png" alt="logoimg" align="left">
                 <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="index.jsp" target="_self">Get a Car</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,9 +38,9 @@
                             <%
                                 String zona = request.getParameter("zone");
                                 if (zona != null) {
-                                    out.println("<a class='nav-link js-scroll-trigger navlinks' href='pruebaManejo.jsp' target='_self'>Prueba de manejo</a>");
+                                    out.println("<button style='margin-right: 10px' class='btn btn-outline-success my-2 my-sm-0' type='button' onclick='validaEmail()'>Agendar prueba</button>");
                                 } else {
-                                    out.println("<a style='color: dimgray' class='nav-link js-scroll-trigger navlinks disabled' href='pruebaManejo.jsp' target='_self'>Prueba de manejo</a>");
+                                    out.println("<button class='btn btn-outline-success my-2 my-sm-0 disabled' type='submit'>Agendar prueba</button>");
                                 }
                             %>
                         </li>
@@ -53,7 +53,7 @@
                                 out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Buscar</button>");
                             } else {
                                 out.println("<input name='name' class='form-control mr-sm-2' type='text' placeholder='Search' required readonly>");
-                                out.println("<button class='btn btn-outline-success my-2 my-sm-0 disabled' type='submit'>Busqueda deshabilitada</button>");
+                                out.println("<button class='btn btn-outline-success my-2 my-sm-0 disabled' type='submit'>Buscar</button>");
                             }
                         %>
                     </form>
@@ -88,7 +88,7 @@
                     <div class="row">
                         <label style="color: white; margin: auto" class="col-form-label"><h5>¿Desea confirmar la zona seleccionada?</h5></label>
                         <input id="selectedZone" class="form-control" style="text-align: center; font-size: 20px" name="zone" readonly>
-                        <button href="#sectioncarousel" style="margin: auto; margin-top: 5px" type="submit" class="btn btn-dark">Confirmar</button>
+                        <button style="margin: auto; margin-top: 5px" type="submit" class="btn btn-dark">Confirmar</button>
                     </div>
                 </form>
             </div>
@@ -96,30 +96,6 @@
         </header>
 
         <div id="content">
-            <!--<section id="sectioncarousel">
-
-                <div id="carousel" class="carousel slide" data-ride="carousel" align="center" >
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img style="width: 100%" class="d-block img-fluid" src="img/Autos/NismoSentra.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img style="width: 100%" class="d-block img-fluid" src="img/Autos/xtrail.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img style="width: 100%" class="d-block img-fluid" src="img/Autos/frontierNP300.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </section>-->
 
             <section id="sectiongaleria" style="width: 100%">
 
@@ -128,7 +104,7 @@
                         <%
                             request.getParameter("zone");
                             if (zona != null) {
-                                out.println("<form><input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none;' type='text' value='Galeria de vehiculos'>"
+                                out.println("<form id='formzone2'><input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none;' type='text' value='Galeria de vehiculos'>"
                                         + "<input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none' type='text' name='currentZone' value ='" + zona + "' readonly></form>");
                             } else {
                                 out.println("<input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none' type='text' value='Galeria de vehiculos'>");
@@ -183,7 +159,7 @@
                                             out.println("<div class='col-md-12'>");
                                             out.println("<div class='container'>");
                                             out.println("<div class='row'>");
-                                            out.println("<input name='modelo' type='text' style='background-color: transparent; border: none; color: #d6ffeb; font-weight: bolder; font-size: 18px' value='" + result.getString(2) +"' size='11' readonly><br>");
+                                            out.println("<input name='modelo' type='text' style='background-color: transparent; border: none; color: #d6ffeb; font-weight: bolder; font-size: 18px' value='" + result.getString(2) + "' size='11' readonly><br>");
                                             out.println("</div>");
                                             out.println("<div class='row'>");
                                             out.println("<div class'col-6 align-self-start' style='padding-top: 10px'>");
@@ -191,14 +167,14 @@
                                             out.println("<input type='text' style='background-color: transparent; border: none; color: #f4eb42; font-weight: bolder; font-size: 18px' value='" + result.getString(3) + "' size='11' readonly>");
                                             out.println("</div>");
                                             out.println("<div class='col-6 align-self-end'>");
-                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Buscar</button>");
+                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Ver</button>");
                                             out.println("</div>");
                                             out.println("</div>");
                                             out.println("</div>");
                                             out.println("</div>");
                                             out.println("</form>");
                                             out.println("</div>");
-                                            
+
                                         }
                                     } catch (Exception e) {
                                         System.out.println(e.getMessage());
@@ -273,11 +249,11 @@
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
                                         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
-                                        
+
                                         command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Pickup';");
                                         command.setString(1, zona);
                                         result = command.executeQuery();
-                                        
+
                                         while (result.next()) {
                                             out.println("<div class=" + "'col-md-6'" + ">");
                                             out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
@@ -291,7 +267,7 @@
                                         System.out.println(e.getMessage());
                                     }
                                 %>
-                                
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="comerciales" role="tabpanel">
@@ -301,11 +277,11 @@
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
                                         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
-                                        
+
                                         command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Comercial';");
                                         command.setString(1, zona);
                                         result = command.executeQuery();
-                                        
+
                                         while (result.next()) {
                                             out.println("<div class=" + "'col-md-6'" + ">");
                                             out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
@@ -319,7 +295,7 @@
                                         System.out.println(e.getMessage());
                                     }
                                 %>
-                                
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="hibridos-electricos" role="tabpanel">
@@ -329,11 +305,11 @@
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
                                         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
-                                        
+
                                         command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Hibrido';");
                                         command.setString(1, zona);
                                         result = command.executeQuery();
-                                        
+
                                         while (result.next()) {
                                             out.println("<div class=" + "'col-md-6'" + ">");
                                             out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
@@ -347,7 +323,7 @@
                                         System.out.println(e.getMessage());
                                     }
                                 %>
-                                
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="deportivos" role="tabpanel">
@@ -357,11 +333,11 @@
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
                                         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
-                                        
+
                                         command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'Deportivo';");
                                         command.setString(1, zona);
                                         result = command.executeQuery();
-                                        
+
                                         while (result.next()) {
                                             out.println("<div class=" + "'col-md-6'" + ">");
                                             out.println("<a href='vehicle-Information.jsp' ta" + "rget='_self' class='d-block mb-4 h-100'>");
@@ -375,7 +351,7 @@
                                         System.out.println(e.getMessage());
                                     }
                                 %>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -478,6 +454,12 @@
             $(document).ready(function (e) {
                 $('img[usemap]').rwdImageMaps();
             });
+            
+            function validaEmail() {
+                document.getElementById('formzone2').action = 'ListaVehiculos';
+                document.getElementById('formzone2').method = 'POST';
+                document.getElementById('formzone2').submit();
+            }
         </script>
 
 

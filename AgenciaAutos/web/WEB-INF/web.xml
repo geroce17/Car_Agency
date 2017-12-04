@@ -8,6 +8,10 @@
         <servlet-name>InformacionVehiculo</servlet-name>
         <servlet-class>modelo.InformacionVehiculo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListaVehiculos</servlet-name>
+        <servlet-class>modelo.ListaVehiculos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Busqueda</servlet-name>
         <url-pattern>/Busqueda</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>InformacionVehiculo</servlet-name>
         <url-pattern>/InformacionVehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaVehiculos</servlet-name>
+        <url-pattern>/ListaVehiculos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

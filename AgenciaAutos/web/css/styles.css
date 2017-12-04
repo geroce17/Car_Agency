@@ -4,8 +4,6 @@ section {
 }
 
 #logo{
-    width: 85px;
-    height: 90px;
     position: absolute;
     top: 0px;
 }
@@ -65,6 +63,7 @@ section {
     border-bottom: solid 2px black;
 }
 #divImage {
+    width: 100%;
 }
 
 
