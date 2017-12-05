@@ -47,7 +47,7 @@
                             <a class="nav-link js-scroll-trigger" href="#">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="pruebaManejo.jsp" target="_self">Agendar prueba de manejo</a>
+                            <button style='margin-right: 10px' class='btn btn-outline-success my-2 my-sm-0' type='button' onclick='IrAPrueba()'>Agendar prueba</button>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -97,7 +97,7 @@
                         <div class="row justify-content-md-center">
                             <div class="col-lg-6 col-md-6">
                                 <div class="service-box mt-5 mx-auto" style="text-align: justify">
-                                    <h3 class="mb-3" style="text-align: center">Aspectos técnicos</h3>
+                                    <h3 class="mb-3" style="text-align: center; color: #003166"><b>Aspectos técnicos</b></h3>
                                     <%
                                         out.println("<p class='text-muted mb-0'><h4>El nuevo Nissan " + modelo + " " + año + " cuenta con un poderoso motor de " + cilindraje + " cilindros"
                                                 + " que le brinda una velocidad de hasta " + velocidadmax + " Km/H.</h4></p>");
@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="service-box mt-5 mx-auto" style="text-align: justify">
-                                    <h3 class="mb-3" style="text-align: center">Diseño</h3>
+                                    <h3 class="mb-3" style="text-align: center; color: #003166"><b>Diseño</b></h3>
                                     <%
                                         out.println("<p class='text-muted mb-0' style='text-align: justify;'><h4>Uno de los aspectos mas importantes son el diseño, para el eso el Nissan " + modelo + " " + año + " cuenta con " + nopuertas + " puertas, además de un color " + color + ""
                                                 + " de la mas alta calidad.</h4></p>");
@@ -115,29 +115,54 @@
                             </div>
                         </div>
                     </div>
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="service-box mt-5 mx-auto" style="text-align: justify">
+                                    <h3 class="mb-3" style="text-align: center;color: #003166"><b>Puedes encontrarlo en</b></h3>
+                                </div>
+                            </div>
+                            <%
+                                Connection connection;
+
+                                PreparedStatement command;
+                                ResultSet agencia;
+                                HttpSession sessionInfo = request.getSession();
+
+                                String agdireccion = "";
+                                String aghorarioE = "";
+                                String aghorarioS = "";
+                                String agnombre = "";
+
+                                try {
+                                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+
+                                    command = connection.prepareStatement("SELECT DISTINCT agencia.direccion, agencia.horarioEntrada, agencia.horarioSalida, agencia.nombre "
+                                            + "FROM automovil "
+                                            + "INNER JOIN agencia ON agencia.id_zona IN (select zona.id_zona from zona where zona.nombre = ? );");
+                                    command.setString(1, zona);
+                                    agencia = command.executeQuery();
+
+                                    while (agencia.next()) {
+                                        agdireccion = agencia.getString(1);
+                                        aghorarioE = agencia.getString(2);
+                                        aghorarioS = agencia.getString(3);
+                                        agnombre = agencia.getString(4);
+                                        out.println("<div class='col-lg-6 col-md-6'>");
+                                        out.println("<div class='service-box mt-5 mx-auto' style='text-align: justify'>");
+                                        out.println("<h3 class='mb-3' style='text-align: left; color: #006fe6'>" + agnombre + "</h3>");
+                                        out.println("<p class='text-muted mb-0' style='text-align: justify;'><h4>" + agdireccion + "</h4></p>");
+                                        out.println("<p class='text-muted mb-0' style='text-align: justify;'><h4>De lunes a viernes, horario de " + aghorarioE + " am a " + aghorarioS + " pm</h4></p>");
+                                        out.println("</div>");
+                                        out.println("</div>");
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
+                                }
+                            %>
+                        </div>
                 </section>
-                <%
-                    Connection connection;
-
-                    PreparedStatement command;
-                    ResultSet result;
-                    HttpSession sessionInfo = request.getSession();
-
-                    try {
-                        Class.forName("com.mysql.jdbc.Driver").newInstance();
-                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
-
-                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? ;");
-                        command.setString(1, zona);
-                        result = command.executeQuery();
-
-                        while (result.next()) {
-
-                        }
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                %>
             </div>
         </section>
 
@@ -240,9 +265,8 @@
                             </div>
                         </div>
                     </div>
-                    <%
-                        out.println("<p style='text-align: right;color:red;font-weight:bolder'>Costo de servicio: $" + costoservicio + "<br>" +
-                        "El costo del servicio puede variar dependiendo del kilometraje del auto</p>");
+                    <%                        out.println("<p style='text-align: right;color:red;font-weight:bolder'>Costo de servicio: $" + costoservicio + "<br>"
+                                + "El costo del servicio puede variar dependiendo del kilometraje del auto</p>");
                     %>
                 </section>
             </div>
@@ -255,8 +279,9 @@
                     <a href="#" class="fa fa-google"></a>
                 </div>
             </div>
-            <%                out.println("<form action='' method=''>");
-                out.println("<input type='text' style='color:blue; display:none' name='zona' value='" + zona + "'>");
+            <%
+                out.println("<form id='formzona'>");
+                out.println("<input type='text' style='color:blue; display:none' name='currentZone' value='" + zona + "'>");
                 out.println("</form>");
             %>
         </section>
@@ -273,6 +298,12 @@
                 {
                     document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
                 }
+            }
+
+            function IrAPrueba() {
+                document.getElementById('formzona').action = 'ListaVehiculos';
+                document.getElementById('formzona').method = 'POST';
+                document.getElementById('formzona').submit();
             }
         </script>
 
