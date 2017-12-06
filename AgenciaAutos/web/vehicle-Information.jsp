@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Información del vehiculo</title>
     </head>
-    <body>
+    <body onload="validasitio()">
         <%
             ResultSet vehiculo = (ResultSet) session.getAttribute("modelo");
             String modelo = "";
@@ -281,10 +281,29 @@
             </div>
             <%
                 out.println("<form id='formzona'>");
-                out.println("<input type='text' style='color:blue; display:none' name='currentZone' value='" + zona + "'>");
+                out.println("<input id='mainZona' type='text' style='color:blue; display:none' name='currentZone' value='" + zona + "'>");
                 out.println("</form>");
             %>
         </section>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ALERTA!!!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¡Wow para tu tren amigo! elige una zona primero
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-primary" href="index.jsp" target="_self">Seleccionar zona</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script>
             window.onscroll = function () {
@@ -304,6 +323,12 @@
                 document.getElementById('formzona').action = 'ListaVehiculos';
                 document.getElementById('formzona').method = 'POST';
                 document.getElementById('formzona').submit();
+            }
+            function validasitio() {
+                x = document.getElementById('mainZona').value;
+                if (x === null || x === ""){
+                    $('#myModal').modal('show');
+                }
             }
         </script>
 

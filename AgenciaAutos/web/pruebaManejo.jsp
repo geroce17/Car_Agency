@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Agenda tu prueba de manejo</title>
     </head>
-    <body>
+    <body onload="validasitio()">
         <%
             ResultSet vehiculo = (ResultSet) session.getAttribute("zona");
             String modelo = "";
@@ -52,12 +52,12 @@
                                         <select id="span_small" name="selectedvehicle" class="form-control select2-single select2-hidden-accessible" onChange="changeS()" required>
                                             <option value="">Elige un vehiculo</option>
                                             <optgroup label="Modelo">
-                                            <%
-                                                while (vehiculo.next()) {
-                                                    modelo = vehiculo.getString(1);
-                                                    out.println("<option value='" + modelo + "'>" + modelo + "</option>");
-                                                }
-                                            %>
+                                                <%
+                                                    while (vehiculo.next()) {
+                                                        modelo = vehiculo.getString(1);
+                                                        out.println("<option value='" + modelo + "'>" + modelo + "</option>");
+                                                    }
+                                                %>
                                             </optgroup>
                                         </select>
 
@@ -71,37 +71,37 @@
                                 <div class="form-group row">
                                     <label for="example-text-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Nombre</label>
                                     <div class="col-sm-12 col-md-5">
-                                        <input class="form-control" type="text" value="" id="example-text-input" name="name" required>
+                                        <input id="name" class="form-control" type="text" value="" id="example-text-input" name="name" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-search-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Apellido paterno</label>
                                     <div class="col-md-6 col-sm-12">
-                                        <input class="form-control" type="text" value="" id="example-search-input" name="lastname" required>
+                                        <input id="lastname" class="form-control" type="text" value="" id="example-search-input" name="lastname" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-email-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Apellido materno</label>
                                     <div class="col-md-6 col-sm-12">
-                                        <input class="form-control" type="text" value="" id="example-email-input" name="lastname2" required>
+                                        <input id="lastname2" class="form-control" type="text" value="" id="example-email-input" name="lastname2" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-url-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Correo electrónico</label>
                                     <div class="col-md-7 col-sm-12">
-                                        <input class="form-control" type="email" value="" id="example-url-input" name="emailp" required>
+                                        <input id="email" class="form-control" type="email" value="" id="example-url-input" name="emailp" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-tel-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">*Teléfono</label>
                                     <div class="col-md-7 col-sm-12">
-                                        <input class="form-control" type="tel" value="" id="example-tel-input" name="phone" required>
+                                        <input id="phone" class="form-control" type="tel" value="" id="example-tel-input" name="phone" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-password-input" class="offset-0 col-12 offset-md-2 col-md-2 col-form-label">Celular</label>
                                     <div class="col-md-7 col-sm-12">
-                                        <input class="form-control" type="tel" value="" id="example-password-input" name="cel" required>
+                                        <input id="cel" class="form-control" type="tel" value="" id="example-password-input" name="cel">
                                     </div>
                                 </div>
                                 <div style="padding-top: 5px;" align="center">
@@ -124,6 +124,25 @@
                 <a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
                 <a href="#" class="fa fa-google"></a>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ALERTA!!!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¡Wow para tu tren amigo! elige una zona primero
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-primary" href="index.jsp" target="_self">Seleccionar zona</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -156,9 +175,21 @@
             });
 
             function validaEmail() {
-                document.getElementById('formcar').action = 'prueba-solicitada.jsp';
-                document.getElementById('formcar').method = 'POST';
-                document.getElementById('formcar').submit();
+                x = document.getElementById('span_small');
+                nombre = document.getElementById('name');
+                apellido = document.getElementById('lastname');
+                apellido2 = document.getElementById('lastname2');
+                e = document.getElementById('email');
+                tel = document.getElementById('phone');
+
+                if (x.options[x.selectedIndex].text !== 'Elige un vehiculo' && nombre.value !== '' && apellido.value !== '' && apellido2.value !== '' && e.value !== '' && tel.value !== '') {
+                    document.getElementById('formcar').action = 'prueba-solicitada.jsp';
+                    document.getElementById('formcar').method = 'POST';
+                    document.getElementById('formcar').submit();
+                }
+                else{
+                    alert("Hay nanita, completa el formulario");
+                }
             }
 
             function VerAuto() {
@@ -175,6 +206,13 @@
                     if (x.options[x.selectedIndex].text === 'Elige un vehiculo') {
                         document.getElementById('verdetalles').disabled = true;
                     }
+                }
+            }
+
+            function validasitio() {
+                x = document.getElementById('span_small')
+                if (x.length < 2) {
+                    $('#myModal').modal('show');
                 }
             }
         </script>

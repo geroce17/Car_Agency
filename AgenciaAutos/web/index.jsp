@@ -451,25 +451,25 @@
                             <div style="padding-bottom: 15px" class="col-md-5">
                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                     <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/util/iconperson.png"></div>
-                                    <input name="nombre" type="text" class="form-control" id="txtNombre" placeholder="*Nombre" required>
+                                    <input name="nombre" type="text" class="form-control" id="nombre" placeholder="*Nombre" required>
                                 </div>
                             </div>
                             <div style="padding-bottom: 15px" class="col-md-7">
                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                     <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/util/iconperson.png"></div>
-                                    <input name="apellido" type="text" class="form-control" id="txtApellido" placeholder="*Apellido" required>
+                                    <input name="apellido" type="text" class="form-control" id="apellido" placeholder="*Apellido" required>
                                 </div>
                             </div>
                             <div style="padding-bottom: 15px" class="col-md-3">
                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                     <div class="input-group-addon"><img style="width: 15px" class="img-fluid" src="img/util/icontelephone.png"></div>
-                                    <input name="telefono" type="tel" pattern="\d*" class="form-control" id="txtTelefono" placeholder="*Teléfono" required>
+                                    <input name="telefono" type="tel" pattern="\d*" class="form-control" id="telefono" placeholder="*Teléfono" required>
                                 </div>
                             </div>
                             <div style="padding-bottom: 15px;" class="col-md-6">
                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                     <div class="input-group-addon">@</div>
-                                    <input name="email" type="email" class="form-control" id="txtEmail" placeholder="*Email" required>
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="*Email" required>
                                 </div>
                             </div>
                             <div style="padding-bottom: 15px" class="col-md-3">
@@ -559,9 +559,18 @@
             }
 
             function enviarEmail() {
-                document.getElementById('formcotizacion').action = 'email-enviado.jsp';
-                document.getElementById('formcotizacion').method = 'POST';
-                document.getElementById('formcotizacion').submit();
+                
+                nombre = document.getElementById('nombre');
+                apellido = document.getElementById('apellido');
+                tel = document.getElementById('telefono');
+                e = document.getElementById('email');
+                if (nombre.value !== '' && apellido.value !== '' && tel.value !== '' && e.value !== '') {
+                    document.getElementById('formcotizacion').action = 'email-enviado.jsp';
+                    document.getElementById('formcotizacion').method = 'POST';
+                    document.getElementById('formcotizacion').submit();
+                } else {
+                    alert("Hay nanita, completa el formulario");
+                }
             }
 
             function goToSearch() {
