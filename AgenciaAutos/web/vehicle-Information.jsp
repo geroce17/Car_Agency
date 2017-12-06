@@ -41,19 +41,15 @@
                 <div align="right" class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">Atributos</a>
+                            <a class="nav-link js-scroll-trigger" href="#atributos">Atributos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">Servicios</a>
+                            <a class="nav-link js-scroll-trigger" href="#sectionServices">Servicios</a>
                         </li>
                         <li class="nav-item">
                             <button style='margin-right: 10px' class='btn btn-outline-success my-2 my-sm-0' type='button' onclick='IrAPrueba()'>Agendar prueba</button>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
                 </div>
             </div>
         </nav>
@@ -68,6 +64,7 @@
             <%
                 while (vehiculo.next()) {
                     out.println("<img id='divImage' class='img-fluid' src='img/Vehiculos/banner/" + vehiculo.getString(1) + "'>");
+                    out.println("<p style='font-size: 70px; bottom: 400px'><b>" + vehiculo.getString(2) + "</b></p>");
                     modelo = vehiculo.getString(2);
                     color = vehiculo.getString(3);
                     segmento = vehiculo.getString(4);
@@ -136,7 +133,7 @@
 
                                 try {
                                     Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+                                    connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
 
                                     command = connection.prepareStatement("SELECT DISTINCT agencia.direccion, agencia.horarioEntrada, agencia.horarioSalida, agencia.nombre "
                                             + "FROM automovil "
@@ -166,7 +163,7 @@
             </div>
         </section>
 
-        <section style="width: 100%; background-color: white; padding: 0px !important; margin-top: 150px;">
+        <section id="sectionServices" style="width: 100%; background-color: white; padding: 0px !important; margin-top: 150px;">
             <div style="padding-top: 100px; padding-bottom: 100px" class="container">
                 <div class="container">
                     <div class="row">
@@ -178,7 +175,7 @@
                     </div>
                 </div>
                 <section class="p-0" id="portfolio">
-                    <a href="#" class="list-group-item active" style="text-align: center">
+                    <a class="list-group-item active" style="text-align: center; font-weight: bolder; font-size: 18px; color: white">
                         Servicio Regular
                     </a>
                     <div class="container-fluid p-0">
@@ -221,46 +218,49 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="list-group-item active" style="text-align: center">
+                    <a class="list-group-item active" style="text-align: center; font-weight: bolder; font-size: 18px; color: white">
                         Servicio Estándar
                     </a>
                     <div class="row justify-content-center">
-                        <div class="col-md-2">
-
+                        <div style="padding: 25px" class="col-md-4">
+                            <img class="img-fluid" src="img/util/bannerestandar.png" alt="promoestandar">
                         </div>
 
-                        <div class="col-md-10"><div class="list-group">
+                        <div style="margin: auto;" class="col-md-8">
+                            <div style="font-size: 18px" class="list-group">
 
-                                <a class="list-group-item list-group-item-action">Cambio de bujias</a>
-                                <a class="list-group-item list-group-item-action">Cambio de aceite</a>
-                                <a class="list-group-item list-group-item-action">Revisión de filtros de aceite</a>
-                                <a class="list-group-item list-group-item-action disabled">Limpieza de válvulas</a>
-                                <a class="list-group-item list-group-item-action disabled">Limpieza del cuerpo de aceleracion</a>
+                                <a style="background-color: #d6faff" class="list-group-item list-group-item-action"><b>Cambio de bujias</b></a>
+                                <a style="background-color: #d6faff" class="list-group-item list-group-item-action"><b>Cambio de aceite</b></a>
+                                <a style="background-color: #d6faff" class="list-group-item list-group-item-action"><b>Revisión de filtros de aceite</b></a>
+                                <a style="background-color: #d6faff" class="list-group-item list-group-item-action disabled"><b>Limpieza de válvulas</b></a>
+                                <a style="background-color: #d6faff" class="list-group-item list-group-item-action disabled"><b>Limpieza del cuerpo de aceleracion</b></a>
 
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="list-group-item active" style="text-align: center">
+                    <a class="list-group-item active" style="text-align: center; font-weight: bolder; font-size: 18px; color: white">
                         Servicio Plus HD Edition
                     </a>
                     <div class="row justify-content-center">
-                        <div class="col-md-2">
-
+                        <div style="padding: 25px" class="col-md-4">
+                            <img class="img-fluid" src="img/util/bannerplus.png" alt="promoplus">
                         </div>
 
-                        <div class="col-md-10"><div class="list-group">
-                                <a class="list-group-item list-group-item-action">Inspeccion de liquido de frenos</a>
-                                <a class="list-group-item list-group-item-action">Líquido de los limpiaparabrisas</a>
-                                <a class="list-group-item list-group-item-action">Filtro de aire y de respiración</a>
-                                <a class="list-group-item list-group-item-action">Radiador y líquido anticolgelante</a>
-                                <a class="list-group-item list-group-item-action disabled">Aceite de la dirección hidráulica</a>
-                                <a class="list-group-item list-group-item-action disabled">Aceite de la transmisión o transeje</a>
-                                <a class="list-group-item list-group-item-action disabled">Revisión de engrasado del chasis</a>
-                                <a class="list-group-item list-group-item-action disabled">Aceite del diferencial</a>
-                                <a class="list-group-item list-group-item-action disabled">Presión de llantas</a>
-                                <a class="list-group-item list-group-item-action disabled">Carga o líquido de la batería</a>
-                                <a class="list-group-item list-group-item-action disabled">Lavado exterior de ventanas, faros y espejos</a>
-                                <a class="list-group-item list-group-item-action disabled">Aspirado interior</a>
+                        <div style="margin: auto;" class="col-md-8">
+                            <div style="font-size: 18px" class="list-group">
+
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action"><b>Inspección de líquido de frenos</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action"><b>Líquido de los limpiaparabrisas</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action"><b>Filtro de aire y de respiración</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action"><b>Radiador y líquido anticolgelante</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action disabled"><b>Aceite de la dirección hidráulica</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action disabled"><b>Aceite de la transmisión</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action disabled"><b>Revisión de engrasado del chasis</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action disabled"><b>Aceite del diferencial</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action disabled"><b>Presión de llantas</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action disabled"><b>Carga o líquido de la batería</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action disabled"><b>Lavado exterior de ventanas, faros y espejos</b></a>
+                                <a style="background-color: #ffe65e" class="list-group-item list-group-item-action disabled"><b>Aspirado interior</b></a>
 
                             </div>
                         </div>

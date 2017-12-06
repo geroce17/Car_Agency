@@ -24,7 +24,7 @@
         <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
                 <img id="logo" class="img-fluid" src="img/logoc.png" alt="logoimg" align="left">
-                <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="index.jsp" target="_self">Get a Car</a>
+                <a id="tituloPrincipal" class="navbar-brand js-scroll-trigger" href="index.jsp" target="_self">Inicio</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,17 +33,7 @@
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="index.jsp" target="_self">Selecciona tu zona</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#toauto">Elige tu vehiculo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#ingresaDatos">Ingresa tus datos</a>
-                        </li>
                     </ul>
-                    <form action="Busqueda" method="post" class="form-inline my-2 my-lg-0">
-                        <input name='name' class='form-control mr-sm-2' type='text' placeholder='Modelo' required>
-                        <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Buscar</button>
-                    </form>
                 </div>
             </div>
         </nav>
@@ -59,7 +49,7 @@
                                 <h2 style="color: white"><b>Elige tu vehiculo</b></h2>
                                 <div class="row">
                                     <div class="col-md-11 form-group">
-                                        <select id="span_small" name="selectedvehicle" onChange="changeS()" required>
+                                        <select id="span_small" name="selectedvehicle" class="form-control select2-single select2-hidden-accessible" onChange="changeS()" required>
                                             <option value="">Elige un vehiculo</option>
                                             <optgroup label="Modelo">
                                             <%

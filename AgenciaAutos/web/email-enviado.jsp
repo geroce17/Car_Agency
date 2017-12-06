@@ -24,7 +24,6 @@
             
             String mensaje = "<p style='font-size: 20px'>El usuario " + name + " " + lastname + " ha solicitado una cotizacion del vehiculo Nissan : " + vehicle + "<br>"
                     + "<br><br>Contacto<br>"+ emailu + "<br>" + phone + "</p>";
-            out.println(mensaje);
             
             boolean resultado = email.enviarCorreo(mensaje);
 

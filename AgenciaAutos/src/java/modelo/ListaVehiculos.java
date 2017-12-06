@@ -23,7 +23,7 @@ public class ListaVehiculos extends HttpServlet {
 
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+            connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
 
             command = connection.prepareStatement("SELECT modelo FROM automovil where zona = ? ;");
             command.setString(1, zona);

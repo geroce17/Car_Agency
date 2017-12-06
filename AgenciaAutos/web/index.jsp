@@ -45,15 +45,15 @@
                             %>
                         </li>
                     </ul>
-                    <form action="Busqueda" method="post" class="form-inline my-2 my-lg-0">
+                    <form id="formbusqueda" class="form-inline my-2 my-lg-0">
                         <%
                             request.getParameter("zone");
                             if (zona != null) {
-                                out.println("<input name='name' class='form-control mr-sm-2' type='text' placeholder='Modelo' required>");
-                                out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Buscar</button>");
+                                out.println("<input style='display: none' name='zona' type='text' value='" + zona + "' ><input name='modelo' class='form-control mr-sm-2' type='text' placeholder='Modelo' required>");
+                                out.println("<button onclick='goToSearch()' class='btn btn-outline-success my-2 my-sm-0' type='button'>Buscar</button>");
                             } else {
-                                out.println("<input name='name' class='form-control mr-sm-2' type='text' placeholder='Search' required readonly>");
-                                out.println("<button class='btn btn-outline-success my-2 my-sm-0 disabled' type='submit'>Buscar</button>");
+                                out.println("<input name='modelo' class='form-control mr-sm-2' type='text' placeholder='Modelo' required readonly>");
+                                out.println("<button class='btn btn-outline-success my-2 my-sm-0 disabled' type='button'>Buscar</button>");
                             }
                         %>
                     </form>
@@ -104,7 +104,7 @@
                         <%
                             request.getParameter("zone");
                             if (zona != null) {
-                                out.println("<form id='formzone2'><input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none;' type='text' value='Galeria de vehiculos'>"
+                                out.println("<form id='formzone2'>"
                                         + "<input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none' type='text' name='currentZone' value ='" + zona + "' readonly></form>");
                             } else {
                                 out.println("<input class='text-primary' style='font-size: 30px; font-weight: bolder; border: none' type='text' value='Galeria de vehiculos'>");
@@ -146,7 +146,7 @@
 
                                     try {
                                         Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+                                        connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
 
                                         command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? ;");
                                         command.setString(1, zona);
@@ -186,7 +186,41 @@
                         <div class="tab-pane fade" id="autos" role="tabpanel">
                             <div class="row text-center text-lg-left">
                                 <%
-                                    
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
+
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'auto' ;");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+
+                                        while (result.next()) {
+                                            out.println("<div class='col-md-6'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<form action='InformacionVehiculo' method='post' style='Background-Color: black; opacity: 0.8; font-size: 18px; margin-bottom: 50px'>");
+                                            out.println("<div class='col-md-12'>");
+                                            out.println("<div class='container'>");
+                                            out.println("<div class='row'>");
+                                            out.println("<input name='selectedvehicle' type='text' style='background-color: transparent; border: none; color: #d6ffeb; font-weight: bolder; font-size: 18px' value='" + result.getString(2) + "' size='11' readonly><br>");
+                                            out.println("</div>");
+                                            out.println("<div class='row'>");
+                                            out.println("<div class'col-6 align-self-start' style='padding-top: 10px'>");
+                                            out.println("<b style='color: gray; font-size: 18px'>Desde: </b>");
+                                            out.println("<input type='text' style='background-color: transparent; border: none; color: #f4eb42; font-weight: bolder; font-size: 18px' value='" + result.getString(3) + "' size='11' readonly>");
+                                            out.println("</div>");
+                                            out.println("<div class='col-6 align-self-end'>");
+                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Ver</button>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</form>");
+                                            out.println("</div>");
+
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
                                 %>
                             </div>
                         </div>
@@ -194,7 +228,41 @@
                         <div class="tab-pane fade" id="crossovers-suvs" role="tabpanel">
                             <div class="row text-center text-lg-left">
                                 <%
-                                   
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
+
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'crossover' ;");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+
+                                        while (result.next()) {
+                                            out.println("<div class='col-md-6'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<form action='InformacionVehiculo' method='post' style='Background-Color: black; opacity: 0.8; font-size: 18px; margin-bottom: 50px'>");
+                                            out.println("<div class='col-md-12'>");
+                                            out.println("<div class='container'>");
+                                            out.println("<div class='row'>");
+                                            out.println("<input name='selectedvehicle' type='text' style='background-color: transparent; border: none; color: #d6ffeb; font-weight: bolder; font-size: 18px' value='" + result.getString(2) + "' size='11' readonly><br>");
+                                            out.println("</div>");
+                                            out.println("<div class='row'>");
+                                            out.println("<div class'col-6 align-self-start' style='padding-top: 10px'>");
+                                            out.println("<b style='color: gray; font-size: 18px'>Desde: </b>");
+                                            out.println("<input type='text' style='background-color: transparent; border: none; color: #f4eb42; font-weight: bolder; font-size: 18px' value='" + result.getString(3) + "' size='11' readonly>");
+                                            out.println("</div>");
+                                            out.println("<div class='col-6 align-self-end'>");
+                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Ver</button>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</form>");
+                                            out.println("</div>");
+
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
                                 %>
                             </div>
                         </div>
@@ -203,7 +271,41 @@
                             <div class="row text-center text-lg-left">
 
                                 <%
-                                    
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
+
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'pickup' ;");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+
+                                        while (result.next()) {
+                                            out.println("<div class='col-md-6'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<form action='InformacionVehiculo' method='post' style='Background-Color: black; opacity: 0.8; font-size: 18px; margin-bottom: 50px'>");
+                                            out.println("<div class='col-md-12'>");
+                                            out.println("<div class='container'>");
+                                            out.println("<div class='row'>");
+                                            out.println("<input name='selectedvehicle' type='text' style='background-color: transparent; border: none; color: #d6ffeb; font-weight: bolder; font-size: 18px' value='" + result.getString(2) + "' size='11' readonly><br>");
+                                            out.println("</div>");
+                                            out.println("<div class='row'>");
+                                            out.println("<div class'col-6 align-self-start' style='padding-top: 10px'>");
+                                            out.println("<b style='color: gray; font-size: 18px'>Desde: </b>");
+                                            out.println("<input type='text' style='background-color: transparent; border: none; color: #f4eb42; font-weight: bolder; font-size: 18px' value='" + result.getString(3) + "' size='11' readonly>");
+                                            out.println("</div>");
+                                            out.println("<div class='col-6 align-self-end'>");
+                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Ver</button>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</form>");
+                                            out.println("</div>");
+
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
                                 %>
 
                             </div>
@@ -212,7 +314,41 @@
                             <div class="row text-center text-lg-left">
 
                                 <%
-                                    
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
+
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'comercial' ;");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+
+                                        while (result.next()) {
+                                            out.println("<div class='col-md-6'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<form action='InformacionVehiculo' method='post' style='Background-Color: black; opacity: 0.8; font-size: 18px; margin-bottom: 50px'>");
+                                            out.println("<div class='col-md-12'>");
+                                            out.println("<div class='container'>");
+                                            out.println("<div class='row'>");
+                                            out.println("<input name='selectedvehicle' type='text' style='background-color: transparent; border: none; color: #d6ffeb; font-weight: bolder; font-size: 18px' value='" + result.getString(2) + "' size='11' readonly><br>");
+                                            out.println("</div>");
+                                            out.println("<div class='row'>");
+                                            out.println("<div class'col-6 align-self-start' style='padding-top: 10px'>");
+                                            out.println("<b style='color: gray; font-size: 18px'>Desde: </b>");
+                                            out.println("<input type='text' style='background-color: transparent; border: none; color: #f4eb42; font-weight: bolder; font-size: 18px' value='" + result.getString(3) + "' size='11' readonly>");
+                                            out.println("</div>");
+                                            out.println("<div class='col-6 align-self-end'>");
+                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Ver</button>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</form>");
+                                            out.println("</div>");
+
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
                                 %>
 
                             </div>
@@ -221,7 +357,41 @@
                             <div class="row text-center text-lg-left">
 
                                 <%
-                                    
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
+
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'hibrido' ;");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+
+                                        while (result.next()) {
+                                            out.println("<div class='col-md-6'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<form action='InformacionVehiculo' method='post' style='Background-Color: black; opacity: 0.8; font-size: 18px; margin-bottom: 50px'>");
+                                            out.println("<div class='col-md-12'>");
+                                            out.println("<div class='container'>");
+                                            out.println("<div class='row'>");
+                                            out.println("<input name='selectedvehicle' type='text' style='background-color: transparent; border: none; color: #d6ffeb; font-weight: bolder; font-size: 18px' value='" + result.getString(2) + "' size='11' readonly><br>");
+                                            out.println("</div>");
+                                            out.println("<div class='row'>");
+                                            out.println("<div class'col-6 align-self-start' style='padding-top: 10px'>");
+                                            out.println("<b style='color: gray; font-size: 18px'>Desde: </b>");
+                                            out.println("<input type='text' style='background-color: transparent; border: none; color: #f4eb42; font-weight: bolder; font-size: 18px' value='" + result.getString(3) + "' size='11' readonly>");
+                                            out.println("</div>");
+                                            out.println("<div class='col-6 align-self-end'>");
+                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Ver</button>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</form>");
+                                            out.println("</div>");
+
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
                                 %>
 
                             </div>
@@ -230,7 +400,41 @@
                             <div class="row text-center text-lg-left">
 
                                 <%
-                                    
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                        connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
+
+                                        command = connection.prepareStatement("SELECT imagen, modelo, precio_estimado FROM automovil where zona = ? and segmento = 'deportivo' ;");
+                                        command.setString(1, zona);
+                                        result = command.executeQuery();
+
+                                        while (result.next()) {
+                                            out.println("<div class='col-md-6'>");
+                                            out.println("<img class='img-fluid'" + " src='img/Vehiculos/" + result.getString(1) + "' alt=''>");
+                                            out.println("<form action='InformacionVehiculo' method='post' style='Background-Color: black; opacity: 0.8; font-size: 18px; margin-bottom: 50px'>");
+                                            out.println("<div class='col-md-12'>");
+                                            out.println("<div class='container'>");
+                                            out.println("<div class='row'>");
+                                            out.println("<input name='selectedvehicle' type='text' style='background-color: transparent; border: none; color: #d6ffeb; font-weight: bolder; font-size: 18px' value='" + result.getString(2) + "' size='11' readonly><br>");
+                                            out.println("</div>");
+                                            out.println("<div class='row'>");
+                                            out.println("<div class'col-6 align-self-start' style='padding-top: 10px'>");
+                                            out.println("<b style='color: gray; font-size: 18px'>Desde: </b>");
+                                            out.println("<input type='text' style='background-color: transparent; border: none; color: #f4eb42; font-weight: bolder; font-size: 18px' value='" + result.getString(3) + "' size='11' readonly>");
+                                            out.println("</div>");
+                                            out.println("<div class='col-6 align-self-end'>");
+                                            out.println("<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Ver</button>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</div>");
+                                            out.println("</form>");
+                                            out.println("</div>");
+
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
                                 %>
 
                             </div>
@@ -271,15 +475,14 @@
                             <div style="padding-bottom: 15px" class="col-md-3">
                                 <select name="vehiculo" id="span_small" class="form-control select2-single select2-hidden-accessible" tabindex="-1" aria-hidden="true" required>
                                     <optgroup label="Vehiculo">
-                                        <%
-                                            PreparedStatement command2;
+                                        <%                                            PreparedStatement command2;
                                             ResultSet result2;
 
                                             String zona2 = request.getParameter("zone");
 
                                             try {
                                                 Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/car-agency?useSSL=false", "root", "4688");
+                                                connection = DriverManager.getConnection("jdbc:mysql://192.168.1.73:3306/DBGAC?useSSL=false", "developer", "1234");
 
                                                 command2 = connection.prepareStatement("SELECT modelo FROM automovil where zona = ? ;");
                                                 command2.setString(1, zona);
@@ -288,7 +491,7 @@
                                                     String modelo = result2.getString(1);
                                                     out.println("<option value='" + modelo + "'>" + modelo + "</option>");
                                                 }
-                                                
+
                                             } catch (Exception e) {
                                                 System.out.println(e.getMessage());
                                             }
@@ -324,18 +527,18 @@
         <script src="plugins/jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
 
         <script>
-                                window.onscroll = function () {
-                                    myFunction();
-                                };
+                                    window.onscroll = function () {
+                                        myFunction();
+                                    };
 
-                                function myFunction() {
-                                    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-                                        document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
-                                    } else
-                                    {
-                                        document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
+                                    function myFunction() {
+                                        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                                            document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top navbar-shrink';
+                                        } else
+                                        {
+                                            document.getElementById('mainNav').className = 'navbar navbar-expand-lg navbar-light fixed-top';
+                                        }
                                     }
-                                }
         </script>
 
         <script>
@@ -354,11 +557,17 @@
                 document.getElementById('formzone2').method = 'POST';
                 document.getElementById('formzone2').submit();
             }
-            
+
             function enviarEmail() {
                 document.getElementById('formcotizacion').action = 'email-enviado.jsp';
                 document.getElementById('formcotizacion').method = 'POST';
                 document.getElementById('formcotizacion').submit();
+            }
+
+            function goToSearch() {
+                document.getElementById('formbusqueda').action = 'Busqueda';
+                document.getElementById('formbusqueda').method = 'POST';
+                document.getElementById('formbusqueda').submit();
             }
         </script>
 
